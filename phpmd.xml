@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<ruleset name="Shopware Plugin Ruleset"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0
+                     https://pmd.sourceforge.io/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="
+                     https://pmd.sourceforge.io/ruleset_xml_schema.xsd">
+    <description>
+        Sets of PHPMD Rules for Shopware 6 plugin development.
+    </description>
+
+    <!-- Clean -->
+    <rule ref="rulesets/cleancode.xml/ElseExpression" />
+
+    <!-- Controversial -->
+    <rule ref="rulesets/controversial.xml/CamelCaseClassName" />
+    <rule ref="rulesets/controversial.xml/CamelCasePropertyName" />
+    <rule ref="rulesets/controversial.xml/CamelCaseMethodName" />
+    <rule ref="rulesets/controversial.xml/CamelCaseVariableName" />
+    <rule ref="rulesets/controversial.xml/CamelCaseParameterName" />
+
+    <!-- Design -->
+    <rule ref="rulesets/design.xml/GotoStatement"/>
+    <rule ref="rulesets/design.xml/EvalExpression"/>
+
+    <!-- Naming -->
+    <rule ref="rulesets/naming.xml/ConstructorWithNameAsEnclosingClass" />
+    <rule ref="rulesets/naming.xml/LongVariable">
+        <properties>
+            <property name="maximum" value="30" />
+            <property name="subtract-suffixes" value="Logger,Provider,Repository,Transformer" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortVariable" >
+        <properties>
+            <property name="exceptions" value="e,id,io" />
+        </properties>
+    </rule>
+
+    <!-- Unused -->
+    <rule ref="rulesets/unusedcode.xml/UnusedPrivateField" />
+    <rule ref="rulesets/unusedcode.xml/UnusedLocalVariable" />
+    <rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod" />
+
+    <!--Exclude Unit Tests / Resources / DependencyInjection-->
+    <exclude-pattern>custom/*/Resources</exclude-pattern>
+    <exclude-pattern>custom/*/tests</exclude-pattern>
+</ruleset>

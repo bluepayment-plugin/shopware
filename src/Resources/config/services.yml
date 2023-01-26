@@ -1,0 +1,56 @@
+imports:
+  - { resource: monolog.yml }
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  _instanceof:
+    BlueMedia\ShopwarePayment\PaymentHandler\BlueMediaPaymentHandlerInterface:
+      tags: ['blue_media.shopware_payment.payment_handler']
+
+  # MAIN NAMESPACE
+  BlueMedia\ShopwarePayment\:
+    resource: '../../'
+
+  # LIFECYCLE
+  BlueMedia\ShopwarePayment\Lifecycle\ActivateDeactivate:
+    public: true
+    arguments:
+      $payment: '@BlueMedia\ShopwarePayment\Lifecycle\Payments\GeneralBlueMediaPayment'
+
+  # API
+  BlueMedia\ShopwarePayment\Api\Client:
+    factory: [ '@BlueMedia\ShopwarePayment\Api\ClientFactory', 'createFromPluginConfig' ]
+
+  # CART VALIDATORS
+  BlueMedia\ShopwarePayment\Validator\IntegrationEnabledCartValidator:
+    tags: ['shopware.cart.validator']
+
+  # DEFINITION
+  BlueMedia\ShopwarePayment\Entity\Gateway\GatewayDefinition:
+    tags: [ 'shopware.entity.definition' ]
+
+  BlueMedia\ShopwarePayment\Entity\GatewayCurrency\GatewayCurrencyDefinition:
+    tags: [ 'shopware.entity.definition' ]
+
+  BlueMedia\ShopwarePayment\Entity\GatewaySalesChannel\GatewaySalesChannelDefinition:
+    tags: [ 'shopware.entity.definition' ]
+
+  # PAYMENT HANDLERS
+  BlueMedia\ShopwarePayment\PaymentHandler\GeneralPaymentHandler:
+    tags: [ 'shopware.payment.method.async' ]
+
+  # RESOLVER
+  BlueMedia\ShopwarePayment\Resolver\PaymentHandlerResolver:
+    arguments:
+      - !tagged_iterator { tag: 'blue_media.shopware_payment.payment_handler' }
+
+  # TASKS (not used in 1.0.0)
+  #BlueMedia\ShopwarePayment\ScheduledTask\GatewaySynchronizationTask:
+  #  tags: [ 'shopware.scheduled.task' ]
+
+  # EVENT SUBSCRIBERS
+  BlueMedia\ShopwarePayment\Subscriber\OrderTransactionStateChangeEventListener:
+    tags: [ 'kernel.event_subscriber' ]

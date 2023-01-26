@@ -1,0 +1,25 @@
+# based on https://github.com/shopwareLabs/store-plugin-codereview/blob/master/configs/phpstan/phpstan.neon.sw6
+# updated according to changes in https://phpstan.org/config-reference
+
+parameters:
+    level: 0
+
+    bootstrapFiles:
+        - %currentWorkingDirectory%/vendor/autoload.php
+    paths:
+        - %currentWorkingDirectory%
+    excludePaths:
+        - %currentWorkingDirectory%/vendor
+        - %currentWorkingDirectory%/tests/
+        - %currentWorkingDirectory%/Test/
+
+    ignoreErrors:
+        - '#apcu_#'
+        - '#ioncube_#'
+        - '#opcache_#'
+        - '#imagettftext#'
+        - '#class Redis#'
+        - '#Constant STARTTIME#'
+
+    reportUnmatchedIgnoredErrors: false
+    tipsOfTheDay: false

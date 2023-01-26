@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation =
+                "https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>How to get started?</title>
+        <title lang="de-DE">Wie man anfängt?</title>
+        <title lang="pl-PL">Jak zacząć?</title>
+        <component name="blue-media-start-banner">
+            <name>blueMediaStartBanner</name>
+        </component>
+    </card>
+    <card>
+        <title>Blue Media Configuration</title>
+        <title lang="de-DE">Blue Media API-Konfiguration</title>
+        <title lang="pl-PL">Konfiguracja Blue Media</title>
+        <input-field type="bool">
+            <name>enabled</name>
+            <label>Enable integration</label>
+            <label lang="de-DE">Integration aktivieren</label>
+            <label lang="pl-PL">Włącz integrację</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+        <input-field type="bool">
+            <name>testMode</name>
+            <label>Test mode</label>
+            <label lang="de-DE">Testmodus</label>
+            <label lang="pl-PL">Tryb testowy</label>
+            <helpText>It allows you to check the operation of the module without having to pay for the order (no order fees are charged in the test mode)</helpText>
+            <helpText lang="de-DE">Damit können Sie den Betrieb des Moduls überprüfen, ohne für die Bestellung bezahlen zu müssen (im Testmodus werden keine Bestellgebühren erhoben).</helpText>
+            <helpText lang="pl-PL">Pozwala na sprawdzenie działania modułu bez konieczności opłacania zamówienia (w trybie testowym nie są pobierane żadne opłaty za zamówienie)</helpText>
+            <defaultValue>false</defaultValue>
+        </input-field>
+        <component name="blue-media-test-mode-banner">
+            <name>blueMediaTestModeBanner</name>
+        </component>
+        <input-field type="url">
+            <name>gatewayUrl</name>
+            <label>Blue Media Gateway address</label>
+            <label lang="de-DE">Blue Media Gateway-Adresse</label>
+            <label lang="pl-PL">Adres bramki Blue Media</label>
+            <defaultValue>https://pay.bm.pl</defaultValue>
+        </input-field>
+        <input-field type="url">
+            <name>testGatewayUrl</name>
+            <label>Blue Media test gateway address</label>
+            <label lang="de-DE">Blue Media-Test-Gateway-Adresse</label>
+            <label lang="pl-PL">Adres bramki testowej Blue Media</label>
+            <defaultValue>https://pay-accept.bm.pl</defaultValue>
+        </input-field>
+        <input-field type="int">
+            <name>serviceId</name>
+            <label>Service ID</label>
+            <label lang="de-DE">Service-ID</label>
+            <label lang="pl-PL">Identyfikator serwisu</label>
+        </input-field>
+        <input-field type="password">
+            <name>sharedKey</name>
+            <label>Configuration key (hash)</label>
+            <label lang="de-DE">Konfigurationsschlüssel (Hash)</label>
+            <label lang="pl-PL">Klucz konfiguracyjny (hash)</label>
+        </input-field>
+        <input-field type="single-select">
+            <name>hashAlgo</name>
+            <options>
+                <option>
+                    <id>sha256</id>
+                    <name>SHA256</name>
+                </option>
+                <option>
+                    <id>sha512</id>
+                    <name>SHA512</name>
+                </option>
+                <option>
+                    <id>md5</id>
+                    <name>MD5</name>
+                </option>
+                <option>
+                    <id>sha1</id>
+                    <name>SHA1</name>
+                </option>
+            </options>
+            <label>Hash function mechanism</label>
+            <label lang="de-DE">Hash-Funktionsmechanismus</label>
+            <label lang="pl-PL">Mechanizm Funkcji skrótu</label>
+            <defaultValue>sha256</defaultValue>
+        </input-field>
+        <component name="blue-media-api-key-validator">
+            <name>blueMediaApiKeyValidator</name>
+        </component>
+    </card>
+    <card>
+        <title>Orders status</title>
+        <title lang="de-DE">Auftragsstatus</title>
+        <title lang="pl-PL">Status zamówień</title>
+        <input-field type="bool">
+            <name>autoProcessOrderStatus</name>
+            <label>Process Order Status on Transaction Capture</label>
+            <label lang="de-DE">Auftragsstatus bei Transaktionserfassung verarbeiten</label>
+            <label lang="pl-PL">Przetwarzaj status zamówienia podczas przechwytywania transakcji</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+</config>

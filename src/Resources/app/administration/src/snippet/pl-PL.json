@@ -1,0 +1,30 @@
+{
+    "BlueMediaPayment": {
+        "mainMenuItemGeneral": "Płatności Blue Media",
+        "configuration": {
+            "verifyCredentials": {
+                "verifyCredentials": "Zweryfikuj poświadczenia",
+                "verifyCredentialsInitial": "",
+                "credentialsCorrect": "Poświadczenia są prawidłowe",
+                "credentialsIncorrect": "Poświadczenia są nieprawidłowe",
+                "couldNotVerify": "Weryfikacja się nie powiodła"
+            }
+        },
+        "startBanner": {
+            "step1Text": "Załóż darmowe konto w serwisie.",
+            "step1Link": "https://platnosci.bm.pl/?pk_campaign=shopware_panel&pk_source=shopware_panel&pk_medium=cta",
+            "step1LinkText": "Zarejestruj się",
+            "step2Text": "Podaj dane Twojej firmy i potwierdź je przelewem weryfikacyjnym.",
+            "step3Text": "Skonfiguruj płatności w swoim sklepie.",
+            "learnMoreLink": "https://developers.bluemedia.pl/online/wdrozenie-krok-po-kroku?mtm_campaign=shopware_developers_aktywacja_platnosci&mtm_source=shopware_backend&mtm_medium=hyperlink",
+            "learnMoreLinkText": "Dowiedz się więcej",
+            "learnMoreText": "o wdrożeniu płatności w Twoim sklepie."
+        },
+        "testModeBanner": {
+            "contactUsLink": "https://developers.bluemedia.pl/kontakt?mtm_campaign=cscart_developers_formularz&mtm_source=cscart_backoffice&mtm_medium=hiperlink",
+            "contactUsLinkText": "skontaktuj się z nami.",
+            "testModeLine1": "Identyfikator serwisu i klucz konfiguracyjny (hash) dla środowiska testowego różnią się od danych produkcyjnych.",
+            "testModeLine2": "Żeby uzyskać dane do środowiska testowego,"
+        }
+    }
+}

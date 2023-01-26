@@ -1,0 +1,31 @@
+monolog:
+    channels: [ blueMediaApi, blueMediaGatewaySync, blueMediaFinalizeTransaction, blueMediaWebhook ]
+    handlers:
+        blueMediaApi:
+            type: rotating_file
+            path: "%kernel.logs_dir%/blue-media/api.%kernel.environment%.log"
+            level: debug
+            max_files: 14
+            formatter: 'monolog.formatter.json'
+            channels: [ blueMediaApi ]
+        blueMediaGatewaySync:
+            type: rotating_file
+            path: "%kernel.logs_dir%/blue-media/gateway-sync.%kernel.environment%.log"
+            level: debug
+            max_files: 14
+            formatter: 'monolog.formatter.json'
+            channels: [ blueMediaGatewaySync ]
+        blueMediaFinalizeTransaction:
+            type: rotating_file
+            path: "%kernel.logs_dir%/blue-media/finalize-transaction.%kernel.environment%.log"
+            level: debug
+            max_files: 14
+            formatter: 'monolog.formatter.json'
+            channels: [ blueMediaFinalizeTransaction ]
+        blueMediaWebhook:
+            type: rotating_file
+            path: "%kernel.logs_dir%/blue-media/webhook.%kernel.environment%.log"
+            level: debug
+            max_files: 14
+            formatter: 'monolog.formatter.json'
+            channels: [ blueMediaWebhook ]

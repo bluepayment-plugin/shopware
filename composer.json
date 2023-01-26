@@ -1,0 +1,57 @@
+{
+    "name": "blue-media/shopware-payment",
+    "description": "Blue Media Shopware 6 Payment Plugin",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "authors": [
+        {
+            "name": "Strix",
+            "homepage": "https://www.strix.net/",
+            "email": "contact@strix.net",
+            "role": "Developer"
+        }
+    ],
+    "extra": {
+        "shopware-plugin-class": "BlueMedia\\ShopwarePayment\\BlueMediaShopwarePayment",
+        "author": "Strix",
+        "label": {
+            "de-DE": "Blue Media Shopware 6 Zahlungs-Plugin",
+            "en-GB": "Blue Media Shopware 6 Payment Plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "BlueMedia\\ShopwarePayment\\": "src/"
+        }
+    },
+    "repositories": {
+        "store.shopware.com": {
+            "type": "composer",
+            "url": "https://packages.shopware.com"
+        }
+    },
+    "require": {
+        "ext-json": "*",
+        "shopware/administration": "~6.4.5",
+        "shopware/storefront": "~6.4.5",
+        "shopware/core": "~6.4.5",
+        "bluepayment-plugin/bm-sdk": "^3.3"
+    },
+    "require-dev": {
+        "dms/phpunit-arraysubset-asserts": "^0.2.1",
+        "johnkary/phpunit-speedtrap": "~3.3.0",
+        "phpmd/phpmd": "^2.13",
+        "phpstan/phpstan": "^1.9",
+        "phpunit/php-code-coverage": "~9.2.5",
+        "phpunit/phpunit": "~9.5.2",
+        "slevomat/coding-standard": "^8.6",
+        "squizlabs/php_codesniffer": "^3.7",
+        "symfony/phpunit-bridge": "~4.4 || ~5.2.3 || ~5.3.0"
+    }
+}

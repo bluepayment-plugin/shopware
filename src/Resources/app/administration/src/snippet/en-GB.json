@@ -1,0 +1,30 @@
+{
+    "BlueMediaPayment": {
+        "mainMenuItemGeneral": "Blue Media Payments",
+        "configuration": {
+            "verifyCredentials": {
+                "verifyCredentials": "Verify credentials",
+                "verifyCredentialsInitial": "",
+                "credentialsCorrect": "Credentials are correct",
+                "credentialsIncorrect": "Credentials are incorrect",
+                "couldNotVerify": "Verification failed"
+            }
+        },
+        "startBanner": {
+            "step1Text": "Create a free account on the site.",
+            "step1Link": "https://platnosci.bm.pl/?pk_campaign=shopware_panel&pk_source=shopware_panel&pk_medium=cta",
+            "step1LinkText": "Sign up",
+            "step2Text": "Enter your company details and confirm them with a verification transfer.",
+            "step3Text": "Set up payments in your store.",
+            "learnMoreLink": "https://developers.bluemedia.pl/online/wdrozenie-krok-po-kroku?mtm_campaign=shopware_developers_aktywacja_platnosci&mtm_source=shopware_backend&mtm_medium=hyperlink",
+            "learnMoreLinkText": "Learn more",
+            "learnMoreText": "about the implementation of payments in your store."
+        },
+        "testModeBanner": {
+            "contactUsLink": "https://developers.bluemedia.pl/kontakt?mtm_campaign=cscart_developers_formularz&mtm_source=cscart_backoffice&mtm_medium=hiperlink",
+            "contactUsLinkText": "please contact us.",
+            "testModeLine1": "The site ID and configuration key (hash) for the test environment are different from the production data.",
+            "testModeLine2": "To obtain data for the test environment,"
+        }
+    }
+}

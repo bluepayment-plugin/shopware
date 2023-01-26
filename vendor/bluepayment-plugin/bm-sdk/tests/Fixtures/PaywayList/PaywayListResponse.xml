@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<list>
+    <serviceID>123456</serviceID>
+    <messageID>485d741080c7a5a1c47ffb7b289fe0f3</messageID>
+    <gateway>
+        <gatewayID>1500</gatewayID>
+        <gatewayName>PBC płatność testowa</gatewayName>
+        <gatewayType>Karta płatnicza</gatewayType>
+        <bankName>Karty</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/1500.gif</iconURL>
+        <statusDate>2020-06-26 10:50:03</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>509</gatewayID>
+        <gatewayName>BLIK</gatewayName>
+        <gatewayType>BLIK</gatewayType>
+        <bankName>BLIK</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/509.gif</iconURL>
+        <statusDate>2020-06-26 10:50:01</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>106</gatewayID>
+        <gatewayName>PG płatność testowa</gatewayName>
+        <gatewayType>PBL</gatewayType>
+        <bankName>NONE</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/106.gif</iconURL>
+        <statusDate>2020-02-25 08:45:18</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>21</gatewayID>
+        <gatewayName>Przelew Volkswagen Bank</gatewayName>
+        <gatewayType>Szybki Przelew</gatewayType>
+        <bankName>VWB</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/21.gif</iconURL>
+        <statusDate>2020-02-25 08:45:18</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>35</gatewayID>
+        <gatewayName>Spółdzielcza Grupa Bankowa</gatewayName>
+        <gatewayType>Szybki Przelew</gatewayType>
+        <bankName>SGB</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/35.gif</iconURL>
+        <statusDate>2020-02-25 08:45:18</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>9</gatewayID>
+        <gatewayName>Przelew z innego banku</gatewayName>
+        <gatewayType>Szybki Przelew</gatewayType>
+        <bankName>SANTANDER</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/9.gif</iconURL>
+        <statusDate>2020-02-25 08:45:18</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>1513</gatewayID>
+        <gatewayName>Apple Pay</gatewayName>
+        <gatewayType>Portfel elektroniczny</gatewayType>
+        <bankName>Karty</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/1513.png</iconURL>
+        <statusDate>2020-02-25 08:00:01</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>1512</gatewayID>
+        <gatewayName>Google Pay</gatewayName>
+        <gatewayType>Portfel elektroniczny</gatewayType>
+        <bankName>Karty</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/1512.png</iconURL>
+        <statusDate>2020-02-25 08:45:04</statusDate>
+    </gateway>
+    <gateway>
+        <gatewayID>1506</gatewayID>
+        <gatewayName>Alior Raty</gatewayName>
+        <gatewayType>Raty online</gatewayType>
+        <bankName>ALIOR</bankName>
+        <iconURL>https://platnosci.bm.pl/pomoc/grafika/1506.jpg</iconURL>
+        <statusDate>2020-06-26 10:50:03</statusDate>
+    </gateway>
+    <hash>eacef1160d7455710be0f7d120b3427e5cc55e8f89f455b732512cf9e9b601e7</hash>
+</list>

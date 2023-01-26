@@ -1,0 +1,30 @@
+{
+    "BlueMediaPayment": {
+        "mainMenuItemGeneral": "Blue Media-Zahlungen",
+        "configuration": {
+            "verifyCredentials": {
+                "verifyCredentials": "Bestätigen Sie die Anmeldeinformationen",
+                "verifyCredentialsInitial": "",
+                "credentialsCorrect": "Anmeldeinformationen sind korrekt",
+                "credentialsIncorrect": "Anmeldeinformationen sind falsch",
+                "couldNotVerify": "Anmeldedaten konnten nicht verifiziert werden"
+            }
+        },
+        "startBanner": {
+            "step1Text": "Erstellen Sie ein kostenloses Konto auf der Seite.",
+            "step1Link": "https://platnosci.bm.pl/?pk_campaign=shopware_panel&pk_source=shopware_panel&pk_medium=cta",
+            "step1LinkText": "Anmelden",
+            "step2Text": "Geben Sie Ihre Firmendaten ein und bestätigen Sie diese mit einer Verifizierungsübertragung.",
+            "step3Text": "Zahlungen in Ihrem Shop einrichten.",
+            "learnMoreLink": "https://developers.bluemedia.pl/online/wdrozenie-krok-po-kroku?mtm_campaign=shopware_developers_aktywacja_platnosci&mtm_source=shopware_backend&mtm_medium=hyperlink",
+            "learnMoreLinkText": "Mehr erfahren",
+            "learnMoreText": "über die Implementierung von Zahlungen in Ihrem Geschäft."
+        },
+        "testModeBanner": {
+            "contactUsLink": "https://developers.bluemedia.pl/kontakt?mtm_campaign=cscart_developers_formularz&mtm_source=cscart_backoffice&mtm_medium=hiperlink",
+            "contactUsLinkText": "kontaktieren Sie uns bitte.",
+            "testModeLine1": "Die Site-ID und der Konfigurationsschlüssel (Hash) für die Testumgebung unterscheiden sich von den Produktionsdaten.",
+            "testModeLine2": "Um Daten für die Testumgebung zu erhalten,"
+        }
+    }
+}
