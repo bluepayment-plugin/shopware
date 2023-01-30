@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd006c9d356d71b6cc3e48c75422f1745214171a2',
+        'reference' => 'd20047abddb00eab0232a4bbe9f150dd860fc5fc',
         'name' => 'blue-media/shopware-payment-composer-dist',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd006c9d356d71b6cc3e48c75422f1745214171a2',
+            'reference' => 'd20047abddb00eab0232a4bbe9f150dd860fc5fc',
             'dev_requirement' => false,
         ),
         'bluepayment-plugin/bm-sdk' => array(

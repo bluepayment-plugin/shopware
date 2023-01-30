@@ -2,7 +2,7 @@
 
 ## Podstawowe informacje
 
-BluePayment to moduł płatności umożliwiający realizację transakcji bezgotówkowych w sklepie opartym na platformie Shopware. Jeżeli jeszcze nie masz wtyczki, możesz ją pobrać [tutaj](https://store.shopware.com).
+BluePayment to moduł płatności umożliwiający realizację transakcji bezgotówkowych w sklepie opartym na platformie Shopware. Jeżeli jeszcze nie masz wtyczki, możesz ją pobrać [tutaj](https://github.com/bluepayment-plugin/shopware/releases).
 
 ### Wymagania
 
@@ -15,7 +15,7 @@ Dostępny [tutaj](./CHANGELOG_pl-PL.md).
 
 ## Instalacja
 
-1. [Pobierz paczkę .zip](https://github.com/bluepayment-plugin/shopware/releases/download/1.0.0/BlueMediaShopwarePayment-1.0.0.zip).
+1. [Pobierz paczkę .zip](https://github.com/bluepayment-plugin/shopware/releases).
 2. Załóż konto w serwisie [PayBM](https://platnosci.bm.pl/) podając swoje dane firmowe. 
 3. Zaloguj się do swojego panelu administracyjnego Shopware.
 4. W panelu administracyjnym przejdź do `Extensions > My extensions` (`Rozszerzenia > Moje rozszerzenia`).
@@ -40,7 +40,7 @@ Dostępny [tutaj](./CHANGELOG_pl-PL.md).
 
 ### Aktualizacja
 
-1. Pobierz paczkę .zip z nową wersją modułu z [Shopware Store](https://store.shopware.com/).
+1. [Pobierz paczkę .zip z nową wersją modułu](https://github.com/bluepayment-plugin/shopware/releases).
 2. Zaloguj się do swojego panelu administracyjnego Shopware.
 3. W panelu administracyjnym przejdź do `Extensions > My extensions` (`Rozszerzenia > Moje rozszerzenia`).
 4. Naciśnij `Upload extension` (`Prześlij rozszerzenie`).
