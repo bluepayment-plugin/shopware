@@ -1,0 +1,57 @@
+{% block page_checkout_finish_blue_media_details %}
+    {% if shouldDisplayBlueMediaPaymentDetails(context, page.order.transactions.last) %}
+        {% set blueMediaTransactionDetails = page.order.transactions.last.customFields[constant('BlueMedia\\ShopwarePayment\\Util\\Constants::BACKGROUND_TRANSACTION_RESPONSE_CUSTOM_FIELD')] %}
+        <div class="row finish-info">
+            <div class="col-md-12">
+                <div class="card checkout-card">
+                    <div class="card-body">
+                        {% block page_checkout_finish_blue_media_details_title %}
+                            <div class="card-title">
+                                {{ "checkout.blue-media-quick-transfer-details.title"|trans|sw_sanitize }}
+                            </div>
+                        {% endblock %}
+                        {% block page_checkout_finish_blue_media_details_subtitle %}
+                            <p>
+                                {{ "checkout.blue-media-quick-transfer-details.subtitle"|trans|sw_sanitize }}
+                            </p>
+                        {% endblock %}
+
+                        {% block page_checkout_finish_blue_media_details_data %}
+                            <p>
+                                <strong>{{ "checkout.blue-media-quick-transfer-details.receiverNRB"|trans|sw_sanitize }}</strong>
+                                {{ blueMediaTransactionDetails.receiverNRB }}
+                            </p>
+                            <p>
+                                <strong>{{ "checkout.blue-media-quick-transfer-details.receiverName"|trans|sw_sanitize }}</strong>
+                                {{ blueMediaTransactionDetails.receiverName }}
+                            </p>
+                            <p>
+                                <strong>{{ "checkout.blue-media-quick-transfer-details.receiverAddress"|trans|sw_sanitize }}</strong>
+                                {{ blueMediaTransactionDetails.receiverAddress }}
+                            </p>
+                            <p>
+                                <strong>{{ "checkout.blue-media-quick-transfer-details.transactionTitle"|trans|sw_sanitize }}</strong>
+                                {{ blueMediaTransactionDetails.title }}
+                            </p>
+                            <p>
+                                <strong>{{ "checkout.blue-media-quick-transfer-details.amount"|trans|sw_sanitize }}</strong>
+                                {{ (blueMediaTransactionDetails.amount * 1)|currency(blueMediaTransactionDetails.currency) }}
+                            </p>
+                            {% block page_checkout_finish_blue_media_details_button %}
+                            <p v-if="blueMediaTransactionDetails.bankHref">
+                                <a href="{{ blueMediaTransactionDetails.bankHref }}"
+                                   title="{{ blueMediaTransactionDetails.bankHref }}"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="btn btn-primary">
+                                    {{ "checkout.blue-media-quick-transfer-details.button"|trans|sw_sanitize }}
+                                </a>
+                            </p>
+                            {% endblock %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

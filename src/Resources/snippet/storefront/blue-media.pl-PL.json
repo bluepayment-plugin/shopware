@@ -1,0 +1,52 @@
+{
+    "checkout": {
+        "blue-media-gateway-not-selected-error": "Proszę wybrać bramkę płatności Blue Media.",
+        "blue-media-gateway-group": {
+            "portfel-elektroniczny": {
+                "label": "Portfel elektroniczny",
+                "description": ""
+            },
+            "szybki-przelew": {
+                "label": "Szybki przelew",
+                "description": ""
+            },
+            "raty-online": {
+                "label": "Raty online",
+                "description": ""
+            },
+            "platnosc-automatyczna": {
+                "label": "Płatność automatyczna",
+                "description": ""
+            },
+            "pbl": {
+                "label": "PBL",
+                "description": ""
+            },
+            "blik": {
+                "label": "BLIK",
+                "description": ""
+            },
+            "karta-platnicza": {
+                "label": "Karta płatnicza",
+                "description": ""
+            },
+            "transfers": {
+                "label": "Przelewy",
+                "description": ""
+            }
+        },
+        "blue-media-quick-transfer-details": {
+            "title" : "Szybki przelew - Wykonaj przelew wykorzystując poniższe dane",
+            "subtitle": "Zaloguj się do swojego konta w banku. Skopiuj i wklej dane w przelew. Ważne żeby dane były takie same jak, nie zmieniaj kwoty, tytułu itp.",
+            "receiverNRB": "Rachunek odbiorcy:",
+            "receiverName": "Nazwa odbiorcy:",
+            "receiverAddress": "Adres odbiorcy:",
+            "transactionTitle": "Tytuł przelewu:",
+            "amount": "Kwota przelewu:",
+            "button": "Zaloguj się do banku"
+        }
+    },
+    "error": {
+        "VIOLATION::IS_BLUE_MEDIA_APPLE_PAY_NOT_SUPPORTED": "Apple Pay nie jest dostępny na tym urządzeniu."
+    }
+}

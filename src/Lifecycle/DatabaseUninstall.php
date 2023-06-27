@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace BlueMedia\ShopwarePayment\Lifecycle;
 
+use BlueMedia\ShopwarePayment\Entity\Gateway\Aggregate\GatewaySalesChannelsActiveDefinition;
+use BlueMedia\ShopwarePayment\Entity\Gateway\Aggregate\GatewaySalesChannelsEnabledDefinition;
 use BlueMedia\ShopwarePayment\Entity\Gateway\GatewayDefinition;
 use BlueMedia\ShopwarePayment\Entity\GatewayCurrency\GatewayCurrencyDefinition;
-use BlueMedia\ShopwarePayment\Entity\GatewaySalesChannel\GatewaySalesChannelDefinition;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
@@ -14,8 +15,10 @@ use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 class DatabaseUninstall
 {
     private const TABLE_NAMES = [
+        GatewaySalesChannelsActiveDefinition::ENTITY_NAME,
+        GatewaySalesChannelsEnabledDefinition::ENTITY_NAME,
         GatewayCurrencyDefinition::ENTITY_NAME,
-        GatewaySalesChannelDefinition::ENTITY_NAME,
+        'blue_media_gateway_sales_channel', //removed in 1.1.0
         GatewayDefinition::ENTITY_NAME,
     ];
 

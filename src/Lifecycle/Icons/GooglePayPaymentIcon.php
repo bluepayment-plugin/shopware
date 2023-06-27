@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace BlueMedia\ShopwarePayment\Lifecycle\Icons;
+
+class GooglePayPaymentIcon extends AbstractPaymentIcon
+{
+    // phpcs:disable
+    /**
+     * Contains only encoded value without prefix "data:image/png;base64,"
+     */
+    protected string $blob = "iVBORw0KGgoAAAANSUhEUgAAAHsAAAB7CAMAAABjGQ9NAAABrVBMVEUAAAA4QEA8QENAQEA7QEI7QEI7QEM8QEM8QEQ8QEM9QEI9QEM8QEI8QEA8QEM9QEI9QEM8QEM9QEM9QEQ8QEM8QEQ6QEU7QEM7QEM7QEM9QEI8QEI7QEM8QEI8QEQ6QECSlJX1rKf+9+Db29t5e331raf85+bqTkKMzp640fuUuvny+vXwfXVNs2jZ6s/50MyNzp5Nsml5e36z3r/81WPzlY3+9PL+7sD+89BVn8OAyJRalPVBieBVV1r729lxo/dalPbZ79/Pz9BBqU6vtCKhwvlZlPaZy4n+7+P+8/LxiYGNz56m2bT86OZnvn76wBX+6bH4rAvzhhp5fH2eoKHb29zhuA+1t7no7/70oZryiYGqrK3M6dTrTkLzmHthY2ZauHOZ06nm9Onn8P7tZVtBrV72rKc2pGfvcWiqq61nvX6Rk5XCw8W2t7n0oJp5fH6qq6yRlJWpq636uwVChfS2t7hJTE7m5+hhZGbpQjXCw8Tz8/Ta29yFiIltb3KFh4qFh4mFiIo0qFPn5+dITE5tcHLz8/POz9Cdn6FITE/n5+hVWFpUWFr///88QEM8W0X9AAAAIHRSTlMAIL8Q33DfkUDvYFDvQM+f326fj6/PMJ9esY9+oYGBMNi03RoAAAAJcEhZcwAADsQAAA7EAZUrDhsAAANfSURBVGiB7ZjnQ9pAFMAJU4Rqtdq995527723dmnr3luQDbITSPL+5l4SiAfVSC702/t9ITzC/fIud+8usdkQBEEQBEEQBEEQBEEQBEH+C5yrvdsNjeC27/A5mid2uOwAocG1hkgNkgvo3NYkdYcXQgIvN0wxlgawc00wc3aImBBr5ASAfZbVPm9oxaxZtaeh22LqHSDmWNQEAdyW5LshwqqW5fmSFTkHYpFZTeRgZ1Y73MwdrjENO1jde2HeklqWC7CTTc1B2qJazpUYe30X0D1+Y+LX2NjUwntzcgGYKlxt2hO/oxpvXlciiYLKqqG7WGpncbcCVc4WojpHKiG+snhIZSN5wcuysHSV6tRT1xfOR6M/qzEe1pTsF6Fg5F5l6nT/Vb2BV8R86pJydPKEHtTcpFchbNTp4DGv5kDQG+j5Eo0+qG+14pbTyr3hl4QY6fuwdhnxcFw/Tdxj3t0Cc/r/PwY+//kno6pbgkS5oN74mCxCQgkJMKuftrjdvNu3PtSOBgKBT8rBi6DG6Lo7fhhE4krFeAFKZUHrLImanWmveTc1zG8R980N3HlRFPPqQjevZbtSLJXIAhCjZ2caLLk3yzt0nyAoq018KZMRnpCOIH6lkiYoN0PeLfCdut/fXiqfPwjPibvmfhNieXIdISCBIplxZUhRw6LAcL85WN+v9Dx7mn1cOX4UDD6sd0vquYISKACfrFmCIiwV3a83LV/MZrMXBpSjc2dJ2mfq3LyW6KoS4CEpiZSaaX7b7FRdO03k2Q/D796OT94L3pXr3DkywmW5LKkBMt3otGPgY3C76Hp+J1tl8vZovVtOgrScyafUACnz9PKXBJZ67vAvUm0Mj1fcMyOVSF9qWv91lpSW48fUQLlm+StDJ4PaZtsP9Ao1cm1m6MrQ5QF5Y8LVjV2yJu1etvWbjPTkJiIDaidYWWLdLXrA9AMJSXuu5hvrLtnhNN4XbJg2PcH64QCjWqltEbP78zD1hz5wMquVeWZaTqnzTksPRQe32I4Z0A/W1CRzf8l4J7oJ8a/QZvkRnHOCZHq4x3vz4GnGmw8XsS8lthbqYn45D/aWJpgJXKsTIF/ILAtbk8lESH1tllnlkKurraHXTOBu87Q28T0TgiAIgiAIgiAIgiAIgiAIzV+r5CUd4DCvaAAAAABJRU5ErkJggg==";
+
+    // phpcs:enable
+
+    protected string $extension = 'png';
+
+    protected string $mime = 'image/png';
+
+    public function getBlob(): string
+    {
+        return base64_decode($this->blob);
+    }
+}

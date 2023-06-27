@@ -1,12 +1,13 @@
 {
     "name": "blue-media/shopware-payment",
-    "description": "Blue Media Shopware 6 Payment Plugin",
-    "version": "1.0.0",
+    "description": "Blue Media Integration Shopware",
+    "version": "1.1.0",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true
         }
     },
     "authors": [
@@ -15,14 +16,26 @@
             "homepage": "https://www.strix.net/",
             "email": "contact@strix.net",
             "role": "Developer"
+        },
+        {
+            "name": "BlueMedia",
+            "homepage": "https://bluemedia.pl/",
+            "email": "uxbmteam@gmail.com",
+            "role": "Owner"
         }
     ],
     "extra": {
         "shopware-plugin-class": "BlueMedia\\ShopwarePayment\\BlueMediaShopwarePayment",
         "author": "Strix",
         "label": {
-            "de-DE": "Blue Media Shopware 6 Zahlungs-Plugin",
-            "en-GB": "Blue Media Shopware 6 Payment Plugin"
+            "de-DE": "Blue Media-Integration Shopware",
+            "en-GB": "Blue Media Integration Shopware",
+            "pl-PL": "Blue Media Integration Shopware"
+        },
+        "patches": {
+            "bluepayment-plugin/bm-sdk": {
+                "Additional parameter in transaction valueObjects": "patches/bm-sdk-value-object-transaction.patch"
+            }
         }
     },
     "autoload": {
@@ -37,6 +50,7 @@
         }
     },
     "require": {
+        "cweagans/composer-patches": "*",
         "ext-json": "*",
         "shopware/administration": "~6.4.5",
         "shopware/storefront": "~6.4.5",

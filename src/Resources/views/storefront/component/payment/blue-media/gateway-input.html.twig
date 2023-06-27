@@ -1,0 +1,30 @@
+{% block blue_media_gateway_input %}
+    <div class="blue-media-gateway custom-control custom-radio mt-4">
+        <input type="radio"
+               id="{{ blueMediaGatewayInputName }}-{{ gateway.id }}"
+               name="{{ blueMediaGatewayInputName }}"
+               value="{{ gateway.id }}"
+               {% if blueMediaGateways.selectedGatewayId is same as gateway.id %}checked="checked"{% endif %}
+               class="blue-media-gateway__input payment-method-input custom-control-input"
+        />
+        
+        <label for="{{ blueMediaGatewayInputName }}-{{ gateway.id }}"
+               class="blue-media-gateway__label payment-method-label custom-control-label"
+        >
+            {% if gateway.logoMedia.url %}
+                <img src="{{ gateway.logoMedia.url }}"
+                     alt="{{ gateway.name }}"
+                     class="blue-media-gateway__image payment-method-image"
+                />
+            {% endif %}
+            <strong>{{ gateway.name }}</strong>
+            {% if gateway.description %}
+                <p class="blue-media-gateway__description blue-media-color-muted">{{ gateway.description }}</p>
+            {% endif %}
+        </label>
+    
+        {% if isBlueMediaApplePayGateway(context.paymentMethod, gateway) %}
+            {% sw_include '@Storefront/storefront/component/payment/blue-media/payments/apple-pay.html.twig' %}
+        {% endif %}
+    </div>
+{% endblock %}

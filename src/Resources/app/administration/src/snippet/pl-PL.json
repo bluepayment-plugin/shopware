@@ -1,5 +1,53 @@
 {
     "BlueMediaPayment": {
+        "moduleDescription": "Płatności Blue Media",
+        "menu": {
+            "mainMenuLabel": "Blue Media Bramki",
+            "gatewaysLabel": "Blue Media Bramki"
+        },
+        "gateways": {
+            "pageHeader": "Blue Media Bramki Płatności",
+            "fields": {
+                "gatewayId": "ID Bramki",
+                "name": "Nazwa",
+                "description": "Opis",
+                "type": "Typ",
+                "bankName": "Nazwa Banku",
+                "available": "Dostępne Kanały Sprzedaży",
+                "enabled": "Włączona",
+                "isSupported": "Wspierana",
+                "createdAt": "Utworzono o",
+                "updatedAt": "Zaktualizowano o "
+            },
+            "success": "Powodzenie",
+            "error": "Bład",
+            "reloadGateways": "Synchronizuj bramki",
+            "reloadSuccessMessage": "Zaplanowano synchronizację",
+            "saveSuccessMessage": "Zapis powiódł się"
+        },
+        "detail": {
+            "gatewayId": "ID Bramki",
+            "name": "Nazwa",
+            "description": "Opis",
+            "type": "Typ",
+            "bankName": "Nazwa Banku",
+            "available": "Dostępne Kanały Sprzedaży",
+            "enabled": "Włączona",
+            "logo": "Logo bramki",
+            "createdAt": "Utworzono o",
+            "updatedAt": "Zaktualizowano o ",
+            "notSupportedMessage": "Wygląda na to że aktualnie ta bramka płatności jest nie wspierana, zaktualizuj plugin do nowszej wersji."
+        },
+        "typeLabels" : {
+            "unknown" : "Jeszcze nieobsługiwane",
+            "quickTransfer" : "Szybki przelew",
+            "payByLink" : "Zapłać linkiem",
+            "onlineInstallments": "Raty internetowe",
+            "blik": "BLIK",
+            "electronicWallet": "Portfel elektroniczny",
+            "automaticPayment": "Płatność automatyczna",
+            "creditCard": "Karta kredytowa"
+        },
         "mainMenuItemGeneral": "Płatności Blue Media",
         "configuration": {
             "verifyCredentials": {
@@ -23,8 +71,15 @@
         "testModeBanner": {
             "contactUsLink": "https://developers.bluemedia.pl/kontakt?mtm_campaign=cscart_developers_formularz&mtm_source=cscart_backoffice&mtm_medium=hiperlink",
             "contactUsLinkText": "skontaktuj się z nami.",
-            "testModeLine1": "Identyfikator serwisu i klucz konfiguracyjny (hash) dla środowiska testowego różnią się od danych produkcyjnych.",
+            "testModeLine1": "Identyfikator serwisu i klucz hash dla środowiska testowego różnią się od danych produkcyjnych.",
             "testModeLine2": "Żeby uzyskać dane do środowiska testowego,"
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "blue_media_gateways": {
+                "label": "Blue Media Bramki Płatności"
+            }
         }
     }
 }

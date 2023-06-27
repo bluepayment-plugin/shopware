@@ -15,6 +15,7 @@ use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
+use Shopware\Core\Framework\Plugin\Context\UpdateContext;
 use Shopware\Core\Framework\Plugin\Util\PluginIdProvider;
 
 use function dirname;
@@ -30,26 +31,34 @@ class BlueMediaShopwarePayment extends Plugin
 {
     public function install(InstallContext $installContext): void
     {
-        parent::install($installContext);
-
         $this->getInstallUninstallLifecycle()
             ->install($installContext);
+
+        parent::install($installContext);
     }
 
     public function activate(ActivateContext $activateContext): void
     {
-        parent::activate($activateContext);
-
         $this->getActivateDeactivateLifecycle()
             ->activate($activateContext);
+
+        parent::activate($activateContext);
+    }
+
+    public function update(UpdateContext $updateContext): void
+    {
+        parent::update($updateContext);
+
+        $this->getInstallUninstallLifecycle()
+            ->update($updateContext);
     }
 
     public function deactivate(DeactivateContext $deactivateContext): void
     {
-        parent::deactivate($deactivateContext);
-
         $this->getActivateDeactivateLifecycle()
             ->deactivate($deactivateContext);
+
+        parent::deactivate($deactivateContext);
     }
 
     /**
@@ -57,10 +66,10 @@ class BlueMediaShopwarePayment extends Plugin
      */
     public function uninstall(UninstallContext $uninstallContext): void
     {
-        parent::uninstall($uninstallContext);
-
         $this->getInstallUninstallLifecycle()
             ->uninstall($uninstallContext);
+
+        parent::uninstall($uninstallContext);
     }
 
     private function getInstallUninstallLifecycle(): InstallUninstall
@@ -73,9 +82,7 @@ class BlueMediaShopwarePayment extends Plugin
             new PaymentProvider(
                 $this->container->get('payment_method.repository')
             ),
-            new DatabaseUninstall(
-                $this->container->get(Connection::class)
-            )
+            new DatabaseUninstall($this->container->get(Connection::class))
         );
     }
 

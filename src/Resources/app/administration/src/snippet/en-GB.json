@@ -1,5 +1,53 @@
 {
     "BlueMediaPayment": {
+        "moduleDescription": "Blue Media Online Payment",
+        "menu": {
+            "mainMenuLabel": "Blue Media Gateways",
+            "gatewaysLabel": "Blue Media Gateways"
+        },
+        "gateways": {
+            "pageHeader": "Blue Media Gateways",
+            "fields": {
+                "gatewayId": "Gateway ID",
+                "name": "Name",
+                "description": "Description",
+                "type": "Type",
+                "bankName": "Bank Name",
+                "available": "Available Sales Channels",
+                "enabled": "Enabled",
+                "isSupported": "Is Supported",
+                "createdAt": "Created At",
+                "updatedAt": "Updated At"
+            },
+            "success": "Success",
+            "error": "Error",
+            "reloadGateways": "Synchronize gateways",
+            "reloadSuccessMessage": "Synchronization has been scheduled",
+            "saveSuccessMessage": "Save success"
+        },
+        "detail": {
+            "gatewayId": "Gateway ID",
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "bankName": "Bank Name",
+            "available": "Available Sales Channels",
+            "enabled": "Enabled",
+            "logo": "Gateway logo",
+            "createdAt": "Created At",
+            "updatedAt": "Updated At",
+            "notSupportedMessage": "It seems that currently this payment gateway is not supported, please update the plugin to a newer version."
+        },
+        "typeLabels" : {
+            "unknown" : "Not yet supported",
+            "quickTransfer" : "Quick Transfer",
+            "payByLink" : "Pay by link",
+            "onlineInstallments": "Online installments",
+            "blik": "BLIK",
+            "electronicWallet": "Electronic wallet",
+            "automaticPayment": "Automatic payment",
+            "creditCard": "Credit card"
+        },
         "mainMenuItemGeneral": "Blue Media Payments",
         "configuration": {
             "verifyCredentials": {
@@ -23,8 +71,15 @@
         "testModeBanner": {
             "contactUsLink": "https://developers.bluemedia.pl/kontakt?mtm_campaign=cscart_developers_formularz&mtm_source=cscart_backoffice&mtm_medium=hiperlink",
             "contactUsLinkText": "please contact us.",
-            "testModeLine1": "The site ID and configuration key (hash) for the test environment are different from the production data.",
+            "testModeLine1": "The site ID and hash key for the test environment are different from the production data.",
             "testModeLine2": "To obtain data for the test environment,"
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "blue_media_gateways": {
+                "label": "Blue Media Gateways"
+            }
         }
     }
 }

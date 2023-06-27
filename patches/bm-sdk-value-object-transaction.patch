@@ -1,0 +1,126 @@
+--git a/src/Transaction/ValueObject/Transaction.php b/src/Transaction/ValueObject/Transaction.php
+
+index c8a6fef58d31..7d01c195791e 100644
+--- a/src/Transaction/ValueObject/Transaction.php
++++ b/src/Transaction/ValueObject/Transaction.php
+@@ -33,6 +33,7 @@
+  *      "blikUIDLabel",
+  *      "blikAMKey",
+  *      "returnURL",
++ *      "paymentToken",
+  *      "defaultRegulationAcceptanceState",
+  *      "defaultRegulationAcceptanceID",
+  *      "defaultRegulationAcceptanceTime",
+@@ -42,6 +43,10 @@
+  *      "remoteID",
+  *      "bankHref",
+  *
++ *      "platformName",
++ *      "platformVersion",
++ *      "platformPluginVersion",
++ *
+  *      "hash"
+  * })
+  */
+@@ -208,6 +213,14 @@
+     protected $returnURL;
+
+     /**
++     * Token Visa or Google Pay.
++     *
++     * @var string
++     * @Type("string")
++     */
++    protected $paymentToken;
++
++    /**
+      * @var string
+      * @Type("string")
+      */
+@@ -258,6 +271,24 @@
+     protected $bankHref;
+
+     /**
++     * @var string
++     * @Type("string")
++     */
++    protected $platformName;
++
++    /**
++     * @var string
++     * @Type("string")
++     */
++    protected $platformVersion;
++
++    /**
++     * @var string
++     * @Type("string")
++     */
++    protected $platformPluginVersion;
++
++    /**
+      * Transaction hash.
+      *
+      * @var string
+@@ -453,6 +484,14 @@
+     /**
+      * @return string
+      */
++    public function getPaymentToken(): string
++    {
++        return $this->paymentToken;
++    }
++
++    /**
++     * @return string
++     */
+     public function getDefaultRegulationAcceptanceState(): string
+     {
+         return $this->defaultRegulationAcceptanceState;
+@@ -507,6 +546,30 @@
+     }
+
+     /**
++     * @return string
++     */
++    public function getPlatformName(): string
++    {
++        return trim($this->platformName);
++    }
++
++    /**
++     * @return string
++     */
++    public function getPlatformVersion(): string
++    {
++        return trim($this->platformVersion);
++    }
++
++    /**
++     * @return string
++     */
++    public function getPlatformPluginVersion(): string
++    {
++        return trim($this->platformPluginVersion);
++    }
++
++    /**
+      * @return string
+      */
+     public function getHash(): string
+
+--git a/src/Transaction/ValueObject/TransactionBackground.php b/src/Transaction/ValueObject/TransactionBackground.php
+
+index c8a6fef58d31..7d01c195791e 100644
+--- a/src/Transaction/ValueObject/TransactionBackground.php
++++ b/src/Transaction/ValueObject/TransactionBackground.php
+@@ -18,6 +18,9 @@
+  *      "remoteID",
+  *      "bankHref",
+  *     "returnURL",
++ *      "platformName",
++ *      "platformVersion",
++ *      "platformPluginVersion",
+  *      "hash"
+  * })
+  */

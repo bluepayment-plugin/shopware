@@ -56,9 +56,9 @@
         </input-field>
         <input-field type="password">
             <name>sharedKey</name>
-            <label>Configuration key (hash)</label>
-            <label lang="de-DE">Konfigurationsschlüssel (Hash)</label>
-            <label lang="pl-PL">Klucz konfiguracyjny (hash)</label>
+            <label>Hash key</label>
+            <label lang="de-DE">Hash-Schlüssel</label>
+            <label lang="pl-PL">Klucz hash</label>
         </input-field>
         <input-field type="single-select">
             <name>hashAlgo</name>
@@ -80,9 +80,9 @@
                     <name>SHA1</name>
                 </option>
             </options>
-            <label>Hash function mechanism</label>
-            <label lang="de-DE">Hash-Funktionsmechanismus</label>
-            <label lang="pl-PL">Mechanizm Funkcji skrótu</label>
+            <label>Hash encryption method</label>
+            <label lang="de-DE">Hash-Verschlüsselungsverfahren</label>
+            <label lang="pl-PL">Metoda szyfrowania hash</label>
             <defaultValue>sha256</defaultValue>
         </input-field>
         <component name="blue-media-api-key-validator">

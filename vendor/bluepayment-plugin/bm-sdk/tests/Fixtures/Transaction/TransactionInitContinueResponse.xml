@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<transaction>
-    <status>PENDING</status>
-    <redirecturl>https://pay-accept.bm.pl/payment/continue/9IA2UISN/718GTV5E</redirecturl>
-    <orderID>123</orderID>
-    <remoteID>9IA2UISN</remoteID>
-    <hash>a3700f934854728035ae2b22cbd0dcbbad0c207faecb16f707b9d2abb103f54e</hash>
-</transaction>

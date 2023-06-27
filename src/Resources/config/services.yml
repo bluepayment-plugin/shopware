@@ -18,39 +18,103 @@ services:
   BlueMedia\ShopwarePayment\Lifecycle\ActivateDeactivate:
     public: true
     arguments:
-      $payment: '@BlueMedia\ShopwarePayment\Lifecycle\Payments\GeneralBlueMediaPayment'
+        $payments: [
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\GeneralBlueMediaPayment',
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\DetailedBlueMediaPayment',
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\PayByLinkPayment',
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\QuickTransferPayment',
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\ApplePayPayment',
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\CardPayment',
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\BlikPayment',
+          '@BlueMedia\ShopwarePayment\Lifecycle\Payments\GooglePayPayment'
+        ]
 
   # API
   BlueMedia\ShopwarePayment\Api\Client:
     factory: [ '@BlueMedia\ShopwarePayment\Api\ClientFactory', 'createFromPluginConfig' ]
 
+  BlueMedia\ShopwarePayment\Api\ClientFactory:
+    arguments:
+      $shopwareVersion: '%kernel.shopware_version%'
+
+  # CART DATA COLLECTORS
+  BlueMedia\ShopwarePayment\Cart\GatewayListDataCollector:
+    tags: [ 'shopware.cart.collector' ]
+
   # CART VALIDATORS
   BlueMedia\ShopwarePayment\Validator\IntegrationEnabledCartValidator:
     tags: ['shopware.cart.validator']
 
-  # DEFINITION
+  BlueMedia\ShopwarePayment\Validator\GatewaySelectedCartValidator:
+    tags: ['shopware.cart.validator']
+
+  # DEFINITIONS
   BlueMedia\ShopwarePayment\Entity\Gateway\GatewayDefinition:
     tags: [ 'shopware.entity.definition' ]
 
   BlueMedia\ShopwarePayment\Entity\GatewayCurrency\GatewayCurrencyDefinition:
     tags: [ 'shopware.entity.definition' ]
 
-  BlueMedia\ShopwarePayment\Entity\GatewaySalesChannel\GatewaySalesChannelDefinition:
+  BlueMedia\ShopwarePayment\Entity\Gateway\Aggregate\GatewaySalesChannelsActiveDefinition:
     tags: [ 'shopware.entity.definition' ]
+
+  BlueMedia\ShopwarePayment\Entity\Gateway\Aggregate\GatewaySalesChannelsEnabledDefinition:
+    tags: [ 'shopware.entity.definition' ]
+
+  # EVENT SUBSCRIBERS
+  BlueMedia\ShopwarePayment\Subscriber\OrderTransactionStateChangeEventListener:
+    tags: [ 'kernel.event_subscriber' ]
 
   # PAYMENT HANDLERS
   BlueMedia\ShopwarePayment\PaymentHandler\GeneralPaymentHandler:
     tags: [ 'shopware.payment.method.async' ]
 
-  # RESOLVER
+  BlueMedia\ShopwarePayment\PaymentHandler\DetailedPaymentHandler:
+    tags: [ 'shopware.payment.method.async' ]
+
+  BlueMedia\ShopwarePayment\PaymentHandler\ApplePayPaymentHandler:
+    tags: [ 'shopware.payment.method.async' ]
+
+  BlueMedia\ShopwarePayment\PaymentHandler\PayByLinkPaymentHandler:
+    tags: [ 'shopware.payment.method.async' ]
+
+  BlueMedia\ShopwarePayment\PaymentHandler\BlikPaymentHandler:
+    tags: [ 'shopware.payment.method.async' ]
+
+  BlueMedia\ShopwarePayment\PaymentHandler\GooglePayPaymentHandler:
+    tags: [ 'shopware.payment.method.async' ]
+
+  BlueMedia\ShopwarePayment\PaymentHandler\QuickTransferPaymentHandler:
+    tags: [ 'shopware.payment.method.sync' ]
+
+  BlueMedia\ShopwarePayment\PaymentHandler\CardPaymentHandler:
+    tags: [ 'shopware.payment.method.sync' ]
+
+  # RESOLVERS
   BlueMedia\ShopwarePayment\Resolver\PaymentHandlerResolver:
     arguments:
       - !tagged_iterator { tag: 'blue_media.shopware_payment.payment_handler' }
 
-  # TASKS (not used in 1.0.0)
-  #BlueMedia\ShopwarePayment\ScheduledTask\GatewaySynchronizationTask:
-  #  tags: [ 'shopware.scheduled.task' ]
+  # RULES
+  BlueMedia\ShopwarePayment\Rule\BlueMediaGatewayAvailable:
+    tags: ['shopware.rule.definition']
 
-  # EVENT SUBSCRIBERS
-  BlueMedia\ShopwarePayment\Subscriber\OrderTransactionStateChangeEventListener:
-    tags: [ 'kernel.event_subscriber' ]
+  # TASKS
+  BlueMedia\ShopwarePayment\ScheduledTask\GatewaySynchronizationTask:
+    tags: [ 'shopware.scheduled.task' ]
+
+  # TWIG EXTENSIONS
+  BlueMedia\ShopwarePayment\Twig\ApplePayTwigExtension:
+    tags: [ 'twig.extension' ]
+
+  BlueMedia\ShopwarePayment\Twig\GatewayListTwigExtension:
+    tags: [ 'twig.extension' ]
+
+  BlueMedia\ShopwarePayment\Twig\QuickTransferTwigExtension:
+    tags: [ 'twig.extension' ]
+
+  BlueMedia\ShopwarePayment\Twig\CardTwigExtension:
+    tags: [ 'twig.extension' ]
+
+  BlueMedia\ShopwarePayment\Twig\GooglePayTwigExtension:
+    tags: [ 'twig.extension' ]

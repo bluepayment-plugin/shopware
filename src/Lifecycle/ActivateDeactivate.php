@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace BlueMedia\ShopwarePayment\Lifecycle;
 
+use BlueMedia\ShopwarePayment\Lifecycle\Icons\AbstractPaymentIcon;
+use BlueMedia\ShopwarePayment\Lifecycle\Icons\IconsFactory;
 use BlueMedia\ShopwarePayment\Lifecycle\Payments\AbstractPayment;
-use BlueMedia\ShopwarePayment\Lifecycle\Payments\DefaultPaymentIcon;
+use BlueMedia\ShopwarePayment\Lifecycle\Payments\GeneralBlueMediaPayment;
+use BlueMedia\ShopwarePayment\Lifecycle\Rules\RulesManager;
 use BlueMedia\ShopwarePayment\Provider\PaymentProvider;
 use Shopware\Core\Checkout\Payment\PaymentMethodEntity;
 use Shopware\Core\Content\Media\MediaCollection;
@@ -27,41 +30,55 @@ class ActivateDeactivate
 
     private PaymentProvider $paymentProvider;
 
-    private DefaultPaymentIcon $defaultPaymentIcon;
+    private IconsFactory $iconsFactory;
 
-    private AbstractPayment $payment;
+    private RulesManager $rulesManager;
+
+    /**
+     * @var AbstractPayment[]
+     */
+    private array $payments;
 
     public function __construct(
         EntityRepositoryInterface $paymentMethodRepository,
         EntityRepositoryInterface $mediaRepository,
         MediaService $mediaService,
         PaymentProvider $paymentProvider,
-        DefaultPaymentIcon $defaultPaymentIcon,
-        AbstractPayment $payment
+        IconsFactory $iconsFactory,
+        RulesManager $rulesManager,
+        array $payments
     ) {
         $this->paymentMethodRepository = $paymentMethodRepository;
         $this->mediaRepository = $mediaRepository;
         $this->mediaService = $mediaService;
         $this->paymentProvider = $paymentProvider;
-        $this->defaultPaymentIcon = $defaultPaymentIcon;
-        $this->payment = $payment;
+        $this->iconsFactory = $iconsFactory;
+        $this->payments = $payments;
+        $this->rulesManager = $rulesManager;
     }
 
     public function activate(ActivateContext $activateContext): void
     {
-        $this->setPaymentMethodIsActive(true, $activateContext->getContext());
-        $this->ensurePaymentMethodIcon($activateContext->getContext());
+        foreach ($this->payments as $payment) {
+            $this->setPaymentMethodStatus(true, $payment, $activateContext->getContext());
+            $this->ensurePaymentMethodIcon($payment, $activateContext->getContext());
+            if (!$payment instanceof GeneralBlueMediaPayment) {
+                $this->rulesManager->ensureAdvancedPaymentRule($payment, $activateContext->getContext());
+            }
+        }
     }
 
     public function deactivate(DeactivateContext $deactivateContext): void
     {
-        $this->setPaymentMethodIsActive(false, $deactivateContext->getContext());
+        foreach ($this->payments as $payment) {
+            $this->setPaymentMethodStatus(false, $payment, $deactivateContext->getContext());
+        }
     }
 
-    private function setPaymentMethodIsActive(bool $active, Context $context): void
+    private function setPaymentMethodStatus(bool $active, AbstractPayment $payment, Context $context): void
     {
         $paymentMethodId = $this->paymentProvider->getPaymentMethodIdByHandler(
-            $this->payment->getHandlerIdentifier(),
+            $payment->getHandlerIdentifier(),
             $context
         );
         if (!$paymentMethodId) {
@@ -75,27 +92,32 @@ class ActivateDeactivate
         $this->paymentMethodRepository->update([$paymentMethod], $context);
     }
 
-    private function ensurePaymentMethodIcon(Context $context): void
+    private function ensurePaymentMethodIcon(AbstractPayment $payment, Context $context): void
     {
-        $paymentMethod = $this->getPaymentMethod($context);
+        $paymentMethod = $this->getPaymentMethod($payment, $context);
         if ($paymentMethod !== null && $paymentMethod->getMediaId() === null) {
+            $expectedPaymentIcon = $this->iconsFactory->createFromPayment($paymentMethod);
+            if (null === $expectedPaymentIcon) {
+                return;
+            }
+
             $paymentMethod = [
                 'id' => $paymentMethod->getId(),
-                'mediaId' => $this->getMediaId($this->payment->getName(), $context),
+                'mediaId' => $this->getMediaId($paymentMethod->getName(), $expectedPaymentIcon, $context),
             ];
             $this->paymentMethodRepository->update([$paymentMethod], $context);
         }
     }
 
-    private function getPaymentMethod(Context $context): ?PaymentMethodEntity
+    private function getPaymentMethod(AbstractPayment $payment, Context $context): ?PaymentMethodEntity
     {
         return $this->paymentProvider->getPaymentMethodByHandler(
-            $this->payment->getHandlerIdentifier(),
+            $payment->getHandlerIdentifier(),
             $context
         );
     }
 
-    private function getMediaId(string $paymentMethodName, Context $context): string
+    private function getMediaId(string $paymentMethodName, AbstractPaymentIcon $icon, Context $context): string
     {
 
         $fileName = preg_replace('/[^a-z0-9]+/', '-', strtolower($paymentMethodName)) . '-icon';
@@ -112,12 +134,12 @@ class ActivateDeactivate
 
         //Apply Default Icon if not created or empty
         return $this->mediaService->saveFile(
-            $this->defaultPaymentIcon->getBlob(),
-            $this->defaultPaymentIcon->getExtension(),
-            $this->defaultPaymentIcon->getMime(),
+            $icon->getBlob(),
+            $icon->getExtension(),
+            $icon->getMime(),
             $fileName,
             $context,
-            DefaultPaymentIcon::BLUE_MEDIA_PAYMENTS_ICONS_FOLDER,
+            $icon::BLUE_MEDIA_PAYMENTS_ICONS_FOLDER,
             null,
             false
         );

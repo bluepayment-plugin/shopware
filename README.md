@@ -6,7 +6,7 @@ BluePayment to moduł płatności umożliwiający realizację transakcji bezgot�
 
 ### Wymagania
 
-- Sklep oparty na Shopware 6 (6.4.5.0 lub wyższa)
+- Sklep oparty na Shopware 6 (od 6.4.5.0 do 6.4.20.2)
 - Wersja PHP zgodna z wymaganiami danej wersji Shopware
 
 ### Dziennik zmian (changelog)
@@ -69,15 +69,15 @@ Aby umożliwić klientom sklepu korzystanie z płatności Blue Media, należy po
    - `Blue Media Gateway address`/`Adres bramki Blue Media` (domyślnie: `https://pay.bm.pl/`) - produkcyjny adres URL bramki Blue Media
    - `Blue Media test gateway address`/`Adres bramki testowej Blue Media` (domyślnie: `https://pay-accept.bm.pl/`) - testowy adres URL bramki Blue Media (używany tylko, gdy `Test mode`/`Tryb testowy` jest włączony)
    - `Service ID`/`Identyfikator serwisu` - numeryczny identyfikator (otrzymasz go od Blue Media)
-   - `Shared Key`/`Klucz konfiguracyjny (hash)` - unikalny klucz przypisany do danego sklepu (otrzymasz go od Blue Media)
-   - `Hash function mechanism`/`Mechanizm funkcji skrótu` (domyślnie: `SHA256`) - metoda szyfrowania hash używana przez Blue Media (musi być taka sama jak po stronie Blue Media w panelu `Konfiguracja Hasha`)
+   - `Hash key`/`Klucz hash` - unikalny klucz przypisany do danego sklepu (otrzymasz go od Blue Media)
+   - `Hash encryption method`/`Metoda szyfrowania hash` (domyślnie: `SHA256`) - metoda szyfrowania hash używana przez Blue Media (musi być taka sama jak po stronie Blue Media w panelu `Konfiguracja Hasha`)
    - `Verify Credentials Button`/`Zweryfikuj poświadczenia` - pozwala na weryfikację powyższej konfiguracji przed zapisem (ignoruje ustawienie `Enable integration`/`Włącz integrację`)
 
    - `Process Order Status on Transaction Capture`/`Przetwarzaj status zamówienia podczas przechwytywania transkacji` - po włączeniu status zamówienia w Shopware będzie zmieniany na `In progress`, gdy transakcja zostanie zatwierdzona przez Blue Media
 
 ### Metoda płatności
 
-Metoda płatności Blue Media tworzona jest w momencie instalacji modułu. Aby aktywować metodę płatności w sklepie, należy przypisać ją w ustawieniach danego kanału sprzedaży. 
+Metody płatności Blue Media tworzone są w momencie instalacji modułu. Aby aktywować metodę płatności w sklepie, należy przypisać ją w ustawieniach danego kanału sprzedaży. 
 
 Metoda płatności Blue Media jest aktywowana i deaktywowana równolegle z całym modułem. Można ją jednak deaktywować również ręcznie w panelu administracyjnym (`Settings > Payment methods`).
 
@@ -89,14 +89,56 @@ Przed przystąpieniem do konfiguracji kanału sprzedaży upewnij się, że modu�
 2. W polu `Payment methods` (`Metody płatności`) dodaj metodę płatności Blue Media Payment.
 
    ![kanał sprzedaży - metody płatności](./docs-images/800-sales-channel-payment-methods.png)
-3. Zapisz zmiany naciskając przycisk `Save` (`Zapisz`) na górze ekranu.
-4. Metoda płatności jest widoczna w checkoucie:
+3. W polu Currencies dodaj walutę “Polish Zloty”. Tylko ta waluta jest obsługiwana przez wtyczkę.
+4. Zapisz zmiany naciskając przycisk `Save` (`Zapisz`) na górze ekranu.
+5. Metoda płatności jest widoczna w checkoucie:
 
    ![checkout](./docs-images/900-checkout.png)
 
+### Zarządzanie dodatkowymi metodami płatności (Lista Bramek Płatności)
+
+Poza przypisaniem metody płatności do kanału sprzedaży należy również aktywować odpowiednią bramkę płatności Blue Media
+
+1. W menu wybierz `Orders -> Blue Media Gateways` / `Zamówienia -> Bramki Blue Media`
+
+![blue_media_gateways](./docs-images/1000-blue-media-gateways.png)
+
+2. Lista synchronizuje się automatycznie ale można wymusić synchronizację na życzenie przyciskiem `Synchronize gateways`.
+3. Po wybraniu i przejściu do edycji poszczególnej bramki płatności możliwe jest włączenie obsługi danej branki w ramach wybranego kanału sprzedzaży.
+4. Wszystkie włączone i wspierane bramki płatności będą widoczne w koszyku bramki które nie będą dostępne lub nie zostaną włączone zostaną ukryte.
+
+### Szczegółowe metody płatności
+
+1. Szczególowa metoda płatności Blue Media z opcją wyboru bramki płatności pozwala na wybór z pogrupowanej listy wyboru odpowiedniej bramki płatności jeszcze przed przekierowaniem do dostawcy płatności:
+
+![detailed_payment_checkout](./docs-images/1100-detailed-payment-checkout.png)
+
+2. W przypadku specyficznych metod płatności (White Label) np. Szybki przelew, do wyboru będa dostępne tylko bramki z wybranej grupy:
+   
+![quick-transfer_checkout](./docs-images/1200-quick-transfer-checkout.png)
+
+3. Metody Szybki przelew, Pay by Link itp. (niesygnowane ikoną Blue Media) integrują się ze sklepem i posiadają własną implementację zachowania:
+
+- Szybki przelew podaje dane do przelewu na stronie podsumowania zamówienia:
+
+![quick-transfer_summary](./docs-images/1300-quick-transfer-summary.png)
+
+- Pay by link - przekierowuje bezpośrednio na stronę banku, z pominięciem BlueMedia. 
+
+- Google Pay - możliwa jest płatność kartą z wykorzystaniem Google Pay
+    - podczas składania zamówienia dodatkowo pojawi się popup pozwalający na wybór jednej z kart płatniczych GooglePay
+    - następnie zamówienie zostanie złożone a token karty zostanie przekazany do Blue Media w celu autoryzacji płatności
 ### Dodatkowe informacje
 
 Podczas instalacji moduł:
-- tworzy metodę płatności Blue Media (pay-by-link)
+- tworzy metodę płatności Blue Media (general - redirect do BlueMedia)
+- tworzy dodatkowe metody płatności:
+  - Szczególową metodę płatności - umożliwiająca zarządzanie poszczególnymi bramkami płatności,
+  - Metody specyficzne (white-label):
+    - Płatność Linkiem
+    - Szybki przelew
+    - Apple Pay
+    - Google Pay
+    - BLIK
 - tworzy walutę PLN, jeśli takowa nie istnieje w systemie
-- tworzy regułę dla metody płatności (obsługa tylko waluty PLN)
+- tworzy reguły dla stworzonych metod płatności (obsługa tylko waluty PLN)

@@ -1,0 +1,14 @@
+{% block blue_media_image_rotator %}
+    {% if images %}
+        <div class="h-100 d-flex align-items-center"
+             data-blue-media-image-rotator="true"
+        >
+            {% for image in images %}
+                <img src="{{ image.url }}"
+                     alt="{{ group.label }}"
+                     class="blue-media-image-rotator__image mh-100 mw-100{% if loop.first %} active position-relative{% endif %}"
+                />
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -5,9 +5,19 @@ declare(strict_types=1);
 namespace BlueMedia\ShopwarePayment\Api;
 
 use BlueMedia\Common\Enum\ClientEnum;
+use BlueMedia\ShopwarePayment\Api\Transformer\DtoTransformer;
+use BlueMedia\ShopwarePayment\BlueMediaShopwarePayment;
 use BlueMedia\ShopwarePayment\Exception\IntegrationNotEnabledException;
 use BlueMedia\ShopwarePayment\Provider\ConfigProvider;
+use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\ClientInterface as GuzzleClientInterface;
 use Psr\Log\LoggerInterface;
+use Shopware\Core\Framework\Api\Context\SystemSource;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\Plugin\PluginEntity;
 
 class ClientFactory
 {
@@ -15,12 +25,24 @@ class ClientFactory
 
     private ConfigProvider $configProvider;
 
+    private DtoTransformer $dtoTransformer;
+
+    private EntityRepositoryInterface $pluginRepository;
+
+    private string $shopwareVersion;
+
     public function __construct(
         LoggerInterface $blueMediaApiLogger,
-        ConfigProvider $configProvider
+        ConfigProvider $configProvider,
+        DtoTransformer $dtoTransformer,
+        EntityRepositoryInterface $pluginRepository,
+        string $shopwareVersion
     ) {
         $this->apiLogger = $blueMediaApiLogger;
         $this->configProvider = $configProvider;
+        $this->dtoTransformer = $dtoTransformer;
+        $this->pluginRepository = $pluginRepository;
+        $this->shopwareVersion = $shopwareVersion;
     }
 
     /**
@@ -50,14 +72,40 @@ class ClientFactory
         string $sharedKey,
         string $gatewayUrl,
         $hashMode = ClientEnum::HASH_SHA256,
-        ?LoggerInterface $blueMediaApi = null
+        ?GuzzleClientInterface $httpClient = null,
+        ?LoggerInterface $logger = null
     ): Client {
         return new Client(
+            $this->shopwareVersion,
+            $this->getBlueMediaPluginVersion(),
             $serviceId,
             $sharedKey,
             $gatewayUrl,
-            $blueMediaApi ?? $this->apiLogger,
+            $logger ?? $this->apiLogger,
+            $httpClient ?? new GuzzleClient(),
+            $this->dtoTransformer,
             $hashMode
         );
+    }
+
+    private function getBlueMediaPluginVersion(): string
+    {
+        $technicalName = explode('\\', BlueMediaShopwarePayment::class);
+        $technicalName = array_pop($technicalName);
+
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('baseClass', BlueMediaShopwarePayment::class));
+
+        $entity = $this->pluginRepository->search($criteria, $this->getContext())->first();
+        if (!$entity instanceof PluginEntity) {
+            return '';
+        }
+
+        return $entity->getVersion();
+    }
+
+    private function getContext(): Context
+    {
+        return new Context(new SystemSource());
     }
 }

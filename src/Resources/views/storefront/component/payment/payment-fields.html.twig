@@ -1,0 +1,18 @@
+{% sw_extends '@Storefront/storefront/component/payment/payment-fields.html.twig' %}
+
+{% block component_payment_method_collapse %}
+    {% set collapseTriggerLabels = collapseTriggerLabels|merge({
+        "collapseContainerSelector": ".collapse-payments"
+    }) %}
+    {% if page.paymentMethods | length > visiblePaymentMethodsLimit and visiblePaymentMethodsLimit is not same as(null) %}
+        <div class="collapse collapse-payments">
+            {% for payment in page.paymentMethods[visiblePaymentMethodsLimit:] %}
+                {% sw_include '@Storefront/storefront/component/payment/payment-method.html.twig' %}
+            {% endfor %}
+        </div>
+
+        {% block component_payment_method_collapse_trigger %}
+            {{ parent() }}
+        {% endblock %}
+    {% endif %}
+{% endblock %}

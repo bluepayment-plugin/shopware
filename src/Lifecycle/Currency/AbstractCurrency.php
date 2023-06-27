@@ -26,4 +26,9 @@ abstract class AbstractCurrency implements JsonSerializable
     protected array $totalRounding = self::DEFAULT_ROUNDING;
 
     protected array $translations;
+
+    public function getIsoCode(): string
+    {
+        return $this->isoCode;
+    }
 }

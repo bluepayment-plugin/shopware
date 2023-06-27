@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BlueMedia\ShopwarePayment\Lifecycle\Payments;
 
+use BlueMedia\ShopwarePayment\Lifecycle\Rules\CurrencyPaymentRule;
 use BlueMedia\ShopwarePayment\PaymentHandler\GeneralPaymentHandler;
 
 class GeneralBlueMediaPayment extends AbstractPayment
@@ -14,6 +15,7 @@ class GeneralBlueMediaPayment extends AbstractPayment
         $this->position = -10;
         $this->handlerIdentifier = GeneralPaymentHandler::class;
         $this->afterOrderEnabled = true;
+        $this->availabilityRuleId = CurrencyPaymentRule::RULE_ID;
         $this->translations = [
             'en-GB' => [
                 'name' => 'Blue Media Payment',

@@ -10,8 +10,7 @@ use BlueMedia\ShopwarePayment\Entity\Gateway\GatewayDefinition;
 use BlueMedia\ShopwarePayment\Exception\ClientException;
 use BlueMedia\ShopwarePayment\Exception\IntegrationNotEnabledException;
 use BlueMedia\ShopwarePayment\Provider\GatewayProvider;
-use BlueMedia\ShopwarePayment\Provider\GatewaySalesChannelProvider;
-use BlueMedia\ShopwarePayment\Transformer\GatewayResponseTransformer;
+use BlueMedia\ShopwarePayment\Transformer\GatewaySyncTransformer;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenContainerEvent;
 
@@ -23,24 +22,27 @@ class GatewaySyncProcessor
 
     private EntityRepositoryInterface $gatewayRepository;
 
-    private GatewayResponseTransformer $responseTransformer;
+    private EntityRepositoryInterface $gatewaySalesChannelActiveRepository;
+
+    private GatewaySyncTransformer $responseTransformer;
 
     private GatewayProvider $gatewayProvider;
 
-    private GatewaySalesChannelProvider $gatewaySalesChannelProvider;
-
+    /**
+     * @SuppressWarnings(PHPMD.LongVariable)
+     */
     public function __construct(
         ClientFactory $clientFactory,
         EntityRepositoryInterface $blueMediaGatewayRepository,
-        GatewayResponseTransformer $gatewayResponseTransformer,
-        GatewayProvider $gatewayProvider,
-        GatewaySalesChannelProvider $gatewaySalesChannelProvider
+        EntityRepositoryInterface $blueMediaGatewaySalesChannelActiveRepository,
+        GatewaySyncTransformer $gatewayResponseTransformer,
+        GatewayProvider $gatewayProvider
     ) {
         $this->clientFactory = $clientFactory;
         $this->gatewayRepository = $blueMediaGatewayRepository;
+        $this->gatewaySalesChannelActiveRepository = $blueMediaGatewaySalesChannelActiveRepository;
         $this->responseTransformer = $gatewayResponseTransformer;
         $this->gatewayProvider = $gatewayProvider;
-        $this->gatewaySalesChannelProvider = $gatewaySalesChannelProvider;
     }
 
     /**
@@ -50,7 +52,7 @@ class GatewaySyncProcessor
     {
         $client = $this->clientFactory->createFromPluginConfig($context->getSalesChannelId());
 
-        $response = $client->getPaywayList();
+        $response = $client->getGatewayList();
 
         $payloads = $this->responseTransformer->transform($response, $context);
         if (empty($payloads)) {
@@ -76,21 +78,10 @@ class GatewaySyncProcessor
         }
 
         $payloads = array_map(fn(string $orphanedId) => [
-            'id' => $orphanedId,
-            'gatewaySalesChannels' => [
-                [
-                    'id' => $this->gatewaySalesChannelProvider->getIdByGatewayAndSalesChannelId(
-                        $orphanedId,
-                        $context->getSalesChannelId(),
-                        $context->getContext()
-                    ),
-                    'gatewayId' => $orphanedId,
-                    'salesChannelId' => $context->getSalesChannelId(),
-                    'active' => false,
-                ],
-            ],
+            'gatewayId' => $orphanedId,
+            'salesChannelId' => $context->getSalesChannelId(),
         ], $orphanedIds);
 
-        $this->gatewayRepository->update($payloads, $context->getContext());
+        $this->gatewaySalesChannelActiveRepository->delete($payloads, $context->getContext());
     }
 }

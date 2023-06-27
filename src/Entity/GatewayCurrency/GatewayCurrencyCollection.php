@@ -11,9 +11,9 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
  * @method void set(string $key, GatewayCurrencyEntity $entity)
  * @method GatewayCurrencyEntity[] getIterator()
  * @method GatewayCurrencyEntity[] getElements()
- * @method GatewayCurrencyEntity|null get(string $key)
- * @method GatewayCurrencyEntity|null first()
- * @method GatewayCurrencyEntity|null last()
+ * @method null|GatewayCurrencyEntity get(string $key)
+ * @method null|GatewayCurrencyEntity first()
+ * @method null|GatewayCurrencyEntity last()
  */
 class GatewayCurrencyCollection extends EntityCollection
 {

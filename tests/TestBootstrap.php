@@ -30,7 +30,7 @@ function getProjectDir(): string
 }
 
 define('TEST_PROJECT_DIR', getProjectDir());
-$loader = require TEST_PROJECT_DIR . '/vendor/autoload.php';
+$loader = require_once TEST_PROJECT_DIR . '/vendor/autoload.php';
 
 // This is just to get the tests running within this plugin. More robust solution is needed for project testing
 $loader->addPsr4('BlueMedia\\ShopwarePayment\\', TEST_PROJECT_DIR . '/custom/static-plugins/BlueMediaShopwarePayment/src', true);

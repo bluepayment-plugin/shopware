@@ -1,5 +1,53 @@
 {
     "BlueMediaPayment": {
+        "moduleDescription": "Blue Media Online-Zahlung",
+        "menu": {
+            "mainMenuLabel": "Blue Media Gateways",
+            "gatewaysLabel": "Blue Media Gateways"
+        },
+        "gateways": {
+            "pageHeader": "Blue Media Gateways",
+            "fields": {
+                "gatewayId": "Gateway-ID",
+                "name": "Name",
+                "description": "Beschreibung",
+                "type": "Typ",
+                "bankName": "Bank Name",
+                "available": "Verfügbare Vertriebskanäle",
+                "enabled": "Ermöglicht",
+                "isSupported": "Wird Unterstützt",
+                "createdAt": "Hergestellt in",
+                "updatedAt": "Aktualisiert am"
+            },
+            "success": "Erfolg",
+            "error": "Fehler",
+            "reloadGateways": "Gateways synchronisieren",
+            "reloadSuccessMessage": "Die Synchronisierung wurde geplant",
+            "saveSuccessMessage": "Save Success"
+        },
+        "detail": {
+            "gatewayId": "Gateway-ID",
+            "name": "Name",
+            "description": "Beschreibung",
+            "type": "Typ",
+            "bankName": "Bank Name",
+            "available": "Verfügbare Vertriebskanäle",
+            "enabled": "Ermöglicht",
+            "logo": "Gateway-Logo",
+            "createdAt": "Hergestellt in",
+            "updatedAt": "Aktualisiert am",
+            "notSupportedMessage": "Es scheint, dass dieses Zahlungsgateway derzeit nicht unterstützt wird, bitte aktualisieren Sie das Plugin auf eine neuere Version."
+        },
+        "typeLabels" : {
+            "unknown" : "Noch nicht unterstützt",
+            "quickTransfer" : "Schnelle Übertragung",
+            "payByLink" : "Per Link bezahlen",
+            "onlineInstallments": "Online Ratenzahlung",
+            "blik": "BLIK",
+            "electronicWallet": "Elektronische Geldbörse",
+            "automaticPayment": "Automatische Zahlung",
+            "creditCard": "Kreditkarte"
+        },
         "mainMenuItemGeneral": "Blue Media-Zahlungen",
         "configuration": {
             "verifyCredentials": {
@@ -23,8 +71,15 @@
         "testModeBanner": {
             "contactUsLink": "https://developers.bluemedia.pl/kontakt?mtm_campaign=cscart_developers_formularz&mtm_source=cscart_backoffice&mtm_medium=hiperlink",
             "contactUsLinkText": "kontaktieren Sie uns bitte.",
-            "testModeLine1": "Die Site-ID und der Konfigurationsschlüssel (Hash) für die Testumgebung unterscheiden sich von den Produktionsdaten.",
+            "testModeLine1": "Die Standort-ID und der Hash-Schlüssel für die Testumgebung unterscheiden sich von den Produktionsdaten.",
             "testModeLine2": "Um Daten für die Testumgebung zu erhalten,"
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "blue_media_gateways": {
+                "label": "Blue Media Gateways"
+            }
         }
     }
 }

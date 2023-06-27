@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BlueMedia\ShopwarePayment\Command;
 
-use BlueMedia\ShopwarePayment\Service\GatewayService;
+use BlueMedia\ShopwarePayment\Service\GatewaySyncService;
 use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
 use Shopware\Core\Framework\Api\Context\SystemSource;
 use Shopware\Core\Framework\Context;
@@ -16,10 +16,10 @@ class SynchronizeGatewayList extends Command
 {
     public static $defaultName = 'blue-media:gateway:sync';
 
-    private GatewayService $gatewayService;
+    private GatewaySyncService $gatewayService;
 
     public function __construct(
-        GatewayService $gatewayService
+        GatewaySyncService $gatewayService
     ) {
         $this->gatewayService = $gatewayService;
 

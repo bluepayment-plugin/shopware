@@ -27,6 +27,8 @@ abstract class AbstractPayment implements JsonSerializable
 
     protected bool $afterOrderEnabled;
 
+    protected bool $active;
+
     public function getName(): string
     {
         return $this->name;
@@ -35,6 +37,11 @@ abstract class AbstractPayment implements JsonSerializable
     public function getHandlerIdentifier(): string
     {
         return $this->handlerIdentifier;
+    }
+
+    public function getAvailabilityRuleId(): ?string
+    {
+        return $this->availabilityRuleId;
     }
 
     public function setAvailabilityRuleId(?string $availabilityRuleId): void
@@ -50,5 +57,10 @@ abstract class AbstractPayment implements JsonSerializable
     public function setMediaId(string $id): void
     {
         $this->mediaId = $id;
+    }
+
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
     }
 }

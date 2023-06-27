@@ -1,0 +1,52 @@
+{
+    "checkout": {
+        "blue-media-gateway-not-selected-error": "Please select Blue Media payment gateway.",
+        "blue-media-gateway-group": {
+            "portfel-elektroniczny": {
+                "label": "Electronic wallet",
+                "description": ""
+            },
+            "szybki-przelew": {
+                "label": "Quick transfer",
+                "description": ""
+            },
+            "raty-online": {
+                "label": "Online installments",
+                "description": ""
+            },
+            "platnosc-automatyczna": {
+                "label": "Automatic payment",
+                "description": ""
+            },
+            "pbl": {
+                "label": "PBL",
+                "description": ""
+            },
+            "blik": {
+                "label": "BLIK",
+                "description": ""
+            },
+            "karta-platnicza": {
+                "label": "Credit/Debit card",
+                "description": ""
+            },
+            "transfers": {
+                "label": "Transfers",
+                "description": ""
+            }
+        },
+        "blue-media-quick-transfer-details": {
+            "title" : "Quick transfer - Make a transfer using the details below",
+            "subtitle": "Log in to your bank account. Copy and paste the data into the transfer. It is important that the data is the same as, do not change the amount, title, etc.",
+            "receiverNRB": "Recipient's account:",
+            "receiverName": "Recipient's name:",
+            "receiverAddress": "The recipient's address:",
+            "transactionTitle": "Transfer title:",
+            "amount": "Transfer amount:",
+            "button": "Log in to your bank"
+        }
+    },
+    "error": {
+        "VIOLATION::IS_BLUE_MEDIA_APPLE_PAY_NOT_SUPPORTED": "Apple Pay is not available on this device."
+    }
+}

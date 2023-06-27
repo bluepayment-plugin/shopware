@@ -1,0 +1,52 @@
+{
+    "checkout": {
+        "blue-media-gateway-not-selected-error": "Bitte wählen Sie das Zahlungsgateway von Blue Media aus.",
+        "blue-media-gateway-group": {
+            "portfel-elektroniczny": {
+                "label": "Elektronische Geldbörse",
+                "description": ""
+            },
+            "szybki-przelew": {
+                "label": "Schnelle Überweisung",
+                "description": ""
+            },
+            "raty-online": {
+                "label": "Online-Raten",
+                "description": ""
+            },
+            "platnosc-automatyczna": {
+                "label": "Automatische Zahlung",
+                "description": ""
+            },
+            "pbl": {
+                "label": "PBL",
+                "description": ""
+            },
+            "blik": {
+                "label": "BLIK",
+                "description": ""
+            },
+            "karta-platnicza": {
+                "label": "Kredit-/Debitkarte",
+                "description": ""
+            },
+            "transfers": {
+                "label": "Überweisungen",
+                "description": ""
+            }
+        },
+        "blue-media-quick-transfer-details": {
+            "title" : "Schnellüberweisung - Führen Sie eine Überweisung mit den untenstehenden Angaben durch",
+            "subtitle": "Melden Sie sich bei Ihrem Bankkonto an. Kopieren Sie die Daten und fügen Sie sie in die Übertragung ein. Wichtig ist, dass die Daten gleich sind, Menge, Titel etc. nicht ändern.",
+            "receiverNRB": "Konto des Empfängers:",
+            "receiverName": "Name des Empfängers:",
+            "receiverAddress": "Die Adresse des Empfängers:",
+            "transactionTitle": "Titel übertragen:",
+            "amount": "Überweisungsbetrag:",
+            "button": "Melden Sie sich bei Ihrer Bank an"
+        }
+    },
+    "error": {
+        "VIOLATION::IS_BLUE_MEDIA_APPLE_PAY_NOT_SUPPORTED": "Apple Pay ist auf diesem Gerät nicht verfügbar."
+    }
+}

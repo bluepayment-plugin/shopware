@@ -1,0 +1,69 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{% set blueMediaGooglePayPayment = isBlueMediaGooglePayPayment(context.paymentMethod) %}
+
+{% block page_checkout_main_content %}
+    {% if blueMediaCardPaymentAvailable(context) %}
+        <script src="https://cards.bm.pl/integration/checkout.js"></script>
+    {% endif %}
+    {% if blueMediaGooglePayPayment %}
+        <script src="https://pay.google.com/gp/p/js/pay.js"></script>
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block page_checkout_aside_actions %}
+    {% set blueMediaCardPayment = checkoutWithBlueMediaCardPayment(context) %}
+    <div class="checkout-aside-action">
+        <form id="confirmOrderForm"
+              {% if blueMediaCardPayment %}
+                  data-blue-media-card-payment="true"
+              {% elseif blueMediaGooglePayPayment %}
+                  {% set blueMediaGooglePayOptions = {
+                      environment : config('BlueMediaShopwarePayment.config.testMode') ? 'TEST' : 'PRODUCTION',
+                      transactionAmount: page.cart.price.totalPrice,
+                      bmInitRequest: {
+                          path: path('blue-payment.checkout.google-pay.order'),
+                          token: sw_csrf('blue-payment.checkout.google-pay.order', {'mode': 'token'}),
+                      },
+                  } %}
+                  data-blue-media-google-pay-payment="true"
+                  data-blue-media-google-pay-payment-options='{{ blueMediaGooglePayOptions|json_encode }}'
+              {% endif %}
+                  action="{{ path('frontend.checkout.finish.order') }}"
+                  data-form-csrf-handler="true"
+                  data-form-preserver="true"
+                  data-form-submit-loader="true"
+                  method="post">
+
+            {% block page_checkout_aside_actions_csrf %}
+                {% if blueMediaCardPayment %}
+                    {{ sw_csrf('blue-payment.checkout.card.order') }}
+                {% else %}
+                    {{ sw_csrf('frontend.checkout.finish.order') }}
+                {% endif %}
+                {% if blueMediaGooglePayPayment %}
+                    <input id="blue-media-google-payment-token"
+                           name="{{ constant('BlueMedia\\ShopwarePayment\\PaymentHandler\\GooglePayPaymentHandler::REQUEST_PARAM') }}"
+                           type="hidden"
+                           form="confirmOrderForm"
+                           value=""
+                    >
+                {% endif %}
+            {% endblock %}
+
+            {% block page_checkout_confirm_form_submit %}
+                {{ parent() }}
+            {% endblock %}
+        </form>
+    </div>
+    {% if isBlueMediaApplePayPayment(context.paymentMethod) or isBlueMediaApplePayGatewaySelected(context) %}
+        <input type="text"
+               name="{{ constant('BlueMedia\\ShopwarePayment\\Validator\\Constraints\\ApplePaySupported::REQUEST_PARAM') }}"
+               form="confirmOrderForm"
+               value="1" {# valid by default #}
+               data-blue-media-apple-pay-validation-field="true"
+        />
+    {% endif %}
+{% endblock %}

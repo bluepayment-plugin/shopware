@@ -8,13 +8,15 @@ use BlueMedia\ShopwarePayment\Entity\GatewayCurrency\GatewayCurrencyCollection;
 use Shopware\Core\Content\Media\MediaEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
-use Shopware\Core\System\SalesChannel\SalesChannelEntity;
+use Shopware\Core\System\SalesChannel\SalesChannelCollection;
+
+use function Symfony\Component\String\u;
 
 class GatewayEntity extends Entity
 {
     use EntityIdTrait;
 
-    protected string $externalId;
+    protected int $gatewayId;
 
     protected string $name;
 
@@ -26,22 +28,24 @@ class GatewayEntity extends Entity
 
     protected ?string $logoMediaId = null;
 
+    protected ?bool $isSupported = null;
+
     protected ?MediaEntity $logoMedia = null;
 
-    protected ?string $salesChannelId = null;
+    protected ?GatewayCurrencyCollection $currencies = null;
 
-    protected ?SalesChannelEntity $salesChannel = null;
+    protected ?SalesChannelCollection $salesChannelsEnabled = null;
 
-    protected ?GatewayCurrencyCollection $gatewayCurrencies = null;
+    protected ?SalesChannelCollection $salesChannelsActive = null;
 
-    public function getExternalId(): string
+    public function getGatewayId(): int
     {
-        return $this->externalId;
+        return $this->gatewayId;
     }
 
-    public function setExternalId(string $externalId): void
+    public function setGatewayId(int $gatewayId): void
     {
-        $this->externalId = $externalId;
+        $this->gatewayId = $gatewayId;
     }
 
     public function getName(): string
@@ -64,8 +68,12 @@ class GatewayEntity extends Entity
         $this->description = $description;
     }
 
-    public function getType(): string
+    public function getType(bool $normalize = false): string
     {
+        if ($normalize) {
+            return u($this->type)->ascii()->lower()->replace(' ', '-')->toString();
+        }
+
         return $this->type;
     }
 
@@ -104,33 +112,43 @@ class GatewayEntity extends Entity
         $this->logoMedia = $logoMedia;
     }
 
-    public function getSalesChannelId(): ?string
+    public function getCurrencies(): ?GatewayCurrencyCollection
     {
-        return $this->salesChannelId;
+        return $this->currencies;
     }
 
-    public function setSalesChannelId(?string $salesChannelId): void
+    public function setCurrencies(?GatewayCurrencyCollection $currencies): void
     {
-        $this->salesChannelId = $salesChannelId;
+        $this->currencies = $currencies;
     }
 
-    public function getSalesChannel(): ?SalesChannelEntity
+    public function getSalesChannelsEnabled(): ?SalesChannelCollection
     {
-        return $this->salesChannel;
+        return $this->salesChannelsEnabled;
     }
 
-    public function setSalesChannel(?SalesChannelEntity $salesChannel): void
+    public function setSalesChannelsEnabled(SalesChannelCollection $salesChannelsEnabled): void
     {
-        $this->salesChannel = $salesChannel;
+        $this->salesChannelsEnabled = $salesChannelsEnabled;
     }
 
-    public function getGatewayCurrencies(): ?GatewayCurrencyCollection
+    public function getSalesChannelsActive(): ?SalesChannelCollection
     {
-        return $this->gatewayCurrencies;
+        return $this->salesChannelsActive;
     }
 
-    public function setGatewayCurrencies(?GatewayCurrencyCollection $gatewayCurrencies): void
+    public function setSalesChannelsActive(SalesChannelCollection $salesChannelsActive): void
     {
-        $this->gatewayCurrencies = $gatewayCurrencies;
+        $this->salesChannelsActive = $salesChannelsActive;
+    }
+
+    public function isSupported(): ?bool
+    {
+        return $this->isSupported;
+    }
+
+    public function setIsSupported(?bool $isSupported): void
+    {
+        $this->isSupported = $isSupported;
     }
 }

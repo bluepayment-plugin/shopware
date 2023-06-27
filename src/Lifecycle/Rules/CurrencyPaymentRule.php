@@ -14,7 +14,7 @@ class CurrencyPaymentRule extends AbstractRule
 
     public function __construct(array $currencyIds = [])
     {
-        $this->id = self::RULE_ID;
+        $this->id = static::RULE_ID;
         $this->name = 'Blue Media Payment Currency [DO NOT EDIT]';
         $this->description = implode("\n\n", [
             // phpcs:disable

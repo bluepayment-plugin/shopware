@@ -1,0 +1,19 @@
+{% block blue_media_gateway_list %}
+    {% set blueMediaGatewayInputName = constant('BlueMedia\\ShopwarePayment\\Util\\Constants::REQUEST_PARAMETER_GATEWAY_ID') %}
+    {% set blueMediaGatewaysList = context.extensions[constant('BlueMedia\\ShopwarePayment\\Util\\Constants::GATEWAYS_EXTENSION_NAME')] %}
+    {% if shouldDisplayBlueMediaGatewayList(payment, context) %}
+        {% for blueMediaGateways in blueMediaGatewaysList.elements %}
+            {% if blueMediaGateways.handlerIdentifier is same as(payment.handlerIdentifier) and blueMediaGateways.isEmpty is same as(false) %}
+                {% set blueMediaGateways = blueMediaGateways %}
+                <div class="blue-media-gateway-list">
+                    {% for group in blueMediaGateways.gatewayGroups %}
+                        {% sw_include '@Storefront/storefront/component/payment/blue-media/gateway-group.html.twig' %}
+                    {% endfor %}
+                    {% for gateway in blueMediaGateways.gateways %}
+                        {% sw_include '@Storefront/storefront/component/payment/blue-media/gateway-input.html.twig' %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

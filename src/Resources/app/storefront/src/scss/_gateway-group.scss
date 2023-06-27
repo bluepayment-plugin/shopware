@@ -1,0 +1,19 @@
+.blue-media-gateway-group {
+  &__collapse-button {
+    height: 58px;
+    cursor: pointer;
+
+    .icon {
+      transform: rotate(180deg);
+      transition: all 0.2s ease-out;
+
+      svg {
+        top: 0;
+      }
+    }
+
+    &.collapsed .icon {
+      transform: rotate(0deg);
+    }
+  }
+}
