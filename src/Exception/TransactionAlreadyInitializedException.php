@@ -8,7 +8,7 @@ use Exception;
 
 class TransactionAlreadyInitializedException extends Exception
 {
-    private const MESSAGE = 'Blue Media transaction for Transaction %s is already initialized.';
+    private const MESSAGE = 'Autopay transaction for Transaction %s is already initialized.';
 
     public function __construct(string $transactionId)
     {

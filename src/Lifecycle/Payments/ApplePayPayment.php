@@ -19,15 +19,15 @@ class ApplePayPayment extends AbstractPayment
         $this->translations = [
             'en-GB' => [
                 'name' => 'Apple Pay',
-                'description' => 'Apple Pay Blue Media Payment',
+                'description' => 'Apple Pay Autopay Payment',
             ],
             'de-DE' => [
                 'name' => 'Apple Pay',
-                'description' => 'Apple Pay Blue Media-Zahlung',
+                'description' => 'Apple Pay Autopay-Zahlung',
             ],
             'pl-PL' => [
                 'name' => 'Apple Pay',
-                'description' => 'Płatność Apple Pay Blue Media',
+                'description' => 'Płatność Apple Pay Autopay',
             ],
         ];
     }

@@ -160,7 +160,7 @@ class PaymentStatusProcessor
             $this->transactionStateHandler->paid($transaction->getId(), $context);
             $this->logger->info(
                 sprintf(
-                    'Blue Media Order (%s) Transaction (%s) Paid with remoteID (%s).',
+                    'Autopay Order (%s) Transaction (%s) Paid with remoteID (%s).',
                     $itnIn->getOrderID(),
                     $transaction->getId(),
                     $itnIn->getRemoteID()

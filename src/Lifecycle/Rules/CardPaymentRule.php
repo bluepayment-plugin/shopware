@@ -11,6 +11,6 @@ class CardPaymentRule extends DetailedPaymentRule
     public function __construct(array $currencyIds = [])
     {
         parent::__construct($currencyIds);
-        $this->name = 'Blue Media Card Payment [DO NOT EDIT]';
+        $this->name = 'Autopay Card Payment [DO NOT EDIT]';
     }
 }

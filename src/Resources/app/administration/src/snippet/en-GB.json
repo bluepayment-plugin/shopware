@@ -1,12 +1,12 @@
 {
     "BlueMediaPayment": {
-        "moduleDescription": "Blue Media Online Payment",
+        "moduleDescription": "Autopay Online Payment",
         "menu": {
-            "mainMenuLabel": "Blue Media Gateways",
-            "gatewaysLabel": "Blue Media Gateways"
+            "mainMenuLabel": "Autopay Gateways",
+            "gatewaysLabel": "Autopay Gateways"
         },
         "gateways": {
-            "pageHeader": "Blue Media Gateways",
+            "pageHeader": "Autopay Gateways",
             "fields": {
                 "gatewayId": "Gateway ID",
                 "name": "Name",
@@ -48,7 +48,7 @@
             "automaticPayment": "Automatic payment",
             "creditCard": "Credit card"
         },
-        "mainMenuItemGeneral": "Blue Media Payments",
+        "mainMenuItemGeneral": "Autopay Payments",
         "configuration": {
             "verifyCredentials": {
                 "verifyCredentials": "Verify credentials",
@@ -78,7 +78,7 @@
     "sw-privileges": {
         "permissions": {
             "blue_media_gateways": {
-                "label": "Blue Media Gateways"
+                "label": "Autopay Gateways"
             }
         }
     }

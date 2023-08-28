@@ -11,6 +11,6 @@ class QuickTransferPaymentRule extends DetailedPaymentRule
     public function __construct(array $currencyIds = [])
     {
         parent::__construct($currencyIds);
-        $this->name = 'Blue Media Quick Transfer Payment [DO NOT EDIT]';
+        $this->name = 'Autopay Quick Transfer Payment [DO NOT EDIT]';
     }
 }

@@ -11,6 +11,6 @@ class BlikPaymentRule extends DetailedPaymentRule
     public function __construct(array $currencyIds = [])
     {
         parent::__construct($currencyIds);
-        $this->name = 'Blue Media BLIK Payment [DO NOT EDIT]';
+        $this->name = 'Autopay BLIK Payment [DO NOT EDIT]';
     }
 }

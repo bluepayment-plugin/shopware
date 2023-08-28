@@ -5,9 +5,9 @@
 {% block page_checkout_main_content %}
     {% if blueMediaCardPaymentAvailable(context) %}
         {% if config('BlueMediaShopwarePayment.config.testMode') %}
-            <script src="https://cards-accept.bm.pl/integration/checkout.js"></script>
+            <script src="https://testcards.autopay.eu/integration/checkout.js"></script>
         {% else %}
-            <script src="https://cards.bm.pl/integration/checkout.js"></script>
+            <script src="https://cards.autopay.eu/integration/checkout.js"></script>
         {% endif %}
     {% endif %}
 
@@ -23,10 +23,10 @@
     <div class="checkout-aside-action">
         <form id="confirmOrderForm"
               {% if blueMediaCardPayment %}
-                  data-blue-media-card-payment="true"
+                  data-autopay-card-payment="true"
               {% elseif blueMediaGooglePayPayment %}
                   {% set languageIsoCode = page.header.activeLanguage.translationCode.code|split('-') %}
-                  {% set blueMediaGooglePayOptions = {
+                  {% set autopayGooglePayOptions = {
                       environment : config('BlueMediaShopwarePayment.config.testMode') ? 'TEST' : 'PRODUCTION',
                       transactionCurrencyCode: context.currency.isoCode,
                       transactionCountryCode: languageIsoCode[1]|upper,
@@ -36,8 +36,8 @@
                           token: sw_csrf('payment.blue-payment.checkout.google-pay', {'mode': 'token'}),
                       },
                   } %}
-                  data-blue-media-google-pay-payment="true"
-                  data-blue-media-google-pay-payment-options='{{ blueMediaGooglePayOptions|json_encode }}'
+                  data-autopay-google-pay-payment="true"
+                  data-blue-media-google-pay-payment-options='{{ autopayGooglePayOptions|json_encode }}'
               {% endif %}
                   action="{{ path('frontend.checkout.finish.order') }}"
                   data-form-csrf-handler="true"
@@ -52,7 +52,7 @@
                     {{ sw_csrf('frontend.checkout.finish.order') }}
                 {% endif %}
                 {% if blueMediaGooglePayPayment %}
-                    <input id="blue-media-google-payment-token"
+                    <input id="autopay-google-payment-token"
                            name="{{ constant('BlueMedia\\ShopwarePayment\\PaymentHandler\\GooglePayPaymentHandler::REQUEST_PARAM') }}"
                            type="hidden"
                            form="confirmOrderForm"
@@ -71,7 +71,7 @@
                name="{{ constant('BlueMedia\\ShopwarePayment\\Validator\\Constraints\\ApplePaySupported::REQUEST_PARAM') }}"
                form="confirmOrderForm"
                value="1" {# valid by default #}
-               data-blue-media-apple-pay-validation-field="true"
+               data-autopay-apple-pay-validation-field="true"
         />
     {% endif %}
 {% endblock %}

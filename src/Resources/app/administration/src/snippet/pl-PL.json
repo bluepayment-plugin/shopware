@@ -1,12 +1,12 @@
 {
     "BlueMediaPayment": {
-        "moduleDescription": "Płatności Blue Media",
+        "moduleDescription": "Płatności Autopay",
         "menu": {
-            "mainMenuLabel": "Blue Media Bramki",
-            "gatewaysLabel": "Blue Media Bramki"
+            "mainMenuLabel": "Autopay Bramki",
+            "gatewaysLabel": "Autopay Bramki"
         },
         "gateways": {
-            "pageHeader": "Blue Media Bramki Płatności",
+            "pageHeader": "Autopay Bramki Płatności",
             "fields": {
                 "gatewayId": "ID Bramki",
                 "name": "Nazwa",
@@ -48,7 +48,7 @@
             "automaticPayment": "Płatność automatyczna",
             "creditCard": "Karta kredytowa"
         },
-        "mainMenuItemGeneral": "Płatności Blue Media",
+        "mainMenuItemGeneral": "Płatności Autopay",
         "configuration": {
             "verifyCredentials": {
                 "verifyCredentials": "Zweryfikuj poświadczenia",
@@ -78,7 +78,7 @@
     "sw-privileges": {
         "permissions": {
             "blue_media_gateways": {
-                "label": "Blue Media Bramki Płatności"
+                "label": "Autopay Bramki Płatności"
             }
         }
     }

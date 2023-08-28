@@ -1,15 +1,15 @@
 {% block blue_media_gateway_group %}
-    <div class="blue-media-gateway-group mb-4" data-fading="true">
-        <div class="blue-media-gateway-group__collapse-button row no-gutters px-2{% if group.gateways.has(blueMediaGateways.selectedGatewayId) is same as(false) %} collapsed{% endif %}"
+    <div class="autopay-gateway-group mb-4" data-fading="true">
+        <div class="autopay-gateway-group__collapse-button row no-gutters px-2{% if group.gateways.has(blueMediaGateways.selectedGatewayId) is same as(false) %} collapsed{% endif %}"
              data-toggle="collapse"
-             data-target="#blue-media-gateway-group-{{ group.type }}"
-             aria-controls="blue-media-gateway-group-{{ group.type }}"
+             data-target="#autopay-gateway-group-{{ group.type }}"
+             aria-controls="autopay-gateway-group-{{ group.type }}"
              aria-expanded="false">
-            <div class="blue-media-gateway-group__label d-flex flex-column justify-content-center col-9">
-                <strong>{{ "checkout.blue-media-gateway-group.#{group.type}.label"|trans|sw_sanitize }}</strong>
-                {% set description = "checkout.blue-media-gateway-group.#{group.type}.description"|trans|sw_sanitize %}
+            <div class="autopay-gateway-group__label d-flex flex-column justify-content-center col-9">
+                <strong>{{ "checkout.autopay-gateway-group.#{group.type}.label"|trans|sw_sanitize }}</strong>
+                {% set description = "checkout.autopay-gateway-group.#{group.type}.description"|trans|sw_sanitize %}
                 {% if description %}
-                    <p class="blue-media-gateway-group__description blue-media-text-muted mb-0">{{ description }}</p>
+                    <p class="autopay-gateway-group__description autopay-text-muted mb-0">{{ description }}</p>
                 {% endif %}
             </div>
             <div class="blue-media-image-rotator col-2">
@@ -17,7 +17,7 @@
                     images: group.gateways.logos
                 } %}
             </div>
-            <div class="blue-media-gateway-group__collapse-icon col-1 d-flex align-items-center">
+            <div class="autopay-gateway-group__collapse-icon col-1 d-flex align-items-center">
                 {% sw_icon 'arrow-down' style {
                     'color': 'primary',
                     'pack':'solid'
@@ -26,7 +26,7 @@
         </div>
 
         <div class="container collapse{% if group.gateways.has(blueMediaGateways.selectedGatewayId) is same as(true) %} show{% endif %}"
-             id="blue-media-gateway-group-{{ group.type }}"
+             id="autopay-gateway-group-{{ group.type }}"
         >
             {% for gateway in group.gateways %}
                 {% sw_include '@Storefront/storefront/component/payment/blue-media/gateway-input.html.twig' %}

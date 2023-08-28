@@ -119,7 +119,6 @@ class ActivateDeactivate
 
     private function getMediaId(string $paymentMethodName, AbstractPaymentIcon $icon, Context $context): string
     {
-
         $fileName = preg_replace('/[^a-z0-9]+/', '-', strtolower($paymentMethodName)) . '-icon';
 
         $criteria = new Criteria();

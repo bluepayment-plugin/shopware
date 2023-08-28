@@ -76,7 +76,7 @@ class MediaDownloader
 
     private function buildFileName(string $string): string
     {
-        return sprintf('blue-media-payment-%s', md5($string));
+        return sprintf('autopay-payment-%s', md5($string));
     }
 
     /**

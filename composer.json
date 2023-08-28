@@ -1,7 +1,7 @@
 {
     "name": "blue-media/shopware-payment",
-    "description": "Blue Media Integration Shopware",
-    "version": "1.2.0",
+    "description": "Autopay Integration Shopware",
+    "version": "1.3.0",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "config": {
@@ -28,9 +28,9 @@
         "shopware-plugin-class": "BlueMedia\\ShopwarePayment\\BlueMediaShopwarePayment",
         "author": "Strix",
         "label": {
-            "de-DE": "Blue Media-Integration Shopware",
-            "en-GB": "Blue Media Integration Shopware",
-            "pl-PL": "Blue Media Integration Shopware"
+            "de-DE": "Autopay-Integration Shopware",
+            "en-GB": "Autopay Integration Shopware",
+            "pl-PL": "Autopay Integration Shopware"
         },
         "patches": {
             "bluepayment-plugin/bm-sdk": {

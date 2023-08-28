@@ -6,9 +6,11 @@ namespace BlueMedia\ShopwarePayment\Lifecycle\Payments;
 
 use BlueMedia\ShopwarePayment\Lifecycle\Common\SerializableTrait;
 use JsonSerializable;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
 
 abstract class AbstractPayment implements JsonSerializable
 {
+    use EntityIdTrait;
     use SerializableTrait;
 
     protected string $name;

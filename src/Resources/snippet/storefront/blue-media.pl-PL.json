@@ -1,7 +1,7 @@
 {
     "checkout": {
-        "blue-media-gateway-not-selected-error": "Proszę wybrać bramkę płatności Blue Media.",
-        "blue-media-gateway-group": {
+        "blue-media-gateway-not-selected-error": "Proszę wybrać bramkę płatności Autopay.",
+        "autopay-gateway-group": {
             "portfel-elektroniczny": {
                 "label": "Portfel elektroniczny",
                 "description": ""

@@ -4,7 +4,7 @@ import { canUseApplePay } from "./common/apple-pay";
 export default class ApplePayPlugin extends Plugin {
     static options = {
         paymentMethodSelector: '.payment-method',
-        gatewayGroupSelector: '.blue-media-gateway-group',
+        gatewayGroupSelector: '.autopay-gateway-group',
         gatewaySelector: '.blue-media-gateway',
         collapseSelector: '.collapse',
         handlePaymentCollapse: true,

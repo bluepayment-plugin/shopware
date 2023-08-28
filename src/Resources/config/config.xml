@@ -6,14 +6,14 @@
         <title>How to get started?</title>
         <title lang="de-DE">Wie man anfängt?</title>
         <title lang="pl-PL">Jak zacząć?</title>
-        <component name="blue-media-start-banner">
-            <name>blueMediaStartBanner</name>
+        <component name="autopay-start-banner">
+            <name>autopayStartBanner</name>
         </component>
     </card>
     <card>
-        <title>Blue Media Configuration</title>
-        <title lang="de-DE">Blue Media API-Konfiguration</title>
-        <title lang="pl-PL">Konfiguracja Blue Media</title>
+        <title>Autopay Configuration</title>
+        <title lang="de-DE">Autopay API-Konfiguration</title>
+        <title lang="pl-PL">Konfiguracja Autopay</title>
         <input-field type="bool">
             <name>enabled</name>
             <label>Enable integration</label>
@@ -36,17 +36,17 @@
         </component>
         <input-field type="url">
             <name>gatewayUrl</name>
-            <label>Blue Media Gateway address</label>
-            <label lang="de-DE">Blue Media Gateway-Adresse</label>
-            <label lang="pl-PL">Adres bramki Blue Media</label>
-            <defaultValue>https://pay.bm.pl</defaultValue>
+            <label>Autopay Gateway address</label>
+            <label lang="de-DE">Autopay Gateway-Adresse</label>
+            <label lang="pl-PL">Adres bramki Autopay</label>
+            <defaultValue>https://pay.autopay.eu</defaultValue>
         </input-field>
         <input-field type="url">
             <name>testGatewayUrl</name>
-            <label>Blue Media test gateway address</label>
-            <label lang="de-DE">Blue Media-Test-Gateway-Adresse</label>
-            <label lang="pl-PL">Adres bramki testowej Blue Media</label>
-            <defaultValue>https://pay-accept.bm.pl</defaultValue>
+            <label>Autopay test gateway address</label>
+            <label lang="de-DE">Autopay-Test-Gateway-Adresse</label>
+            <label lang="pl-PL">Adres bramki testowej Autopay</label>
+            <defaultValue>https://testpay.autopay.eu</defaultValue>
         </input-field>
         <input-field type="int">
             <name>serviceId</name>
@@ -85,8 +85,8 @@
             <label lang="pl-PL">Metoda szyfrowania hash</label>
             <defaultValue>sha256</defaultValue>
         </input-field>
-        <component name="blue-media-api-key-validator">
-            <name>blueMediaApiKeyValidator</name>
+        <component name="autopay-api-key-validator">
+            <name>autopayApiKeyValidator</name>
         </component>
     </card>
     <card>

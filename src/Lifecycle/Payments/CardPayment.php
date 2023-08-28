@@ -19,15 +19,15 @@ class CardPayment extends AbstractPayment
         $this->translations = [
             'en-GB' => [
                 'name' => 'Card payment',
-                'description' => 'Card Blue Media Payment',
+                'description' => 'Card Autopay Payment',
             ],
             'de-DE' => [
                 'name' => 'Kartenzahlung',
-                'description' => 'Karte Blue Media Zahlung',
+                'description' => 'Karte Autopay Zahlung',
             ],
             'pl-PL' => [
                 'name' => 'Płatność kartą',
-                'description' => 'Płatność kartą Blue Media',
+                'description' => 'Płatność kartą Autopay',
             ],
         ];
     }

@@ -1,0 +1,129 @@
+{% block bluemedia_gateway_detail %}
+<sw-page class="blue-media-gateway-detail">
+
+    <template slot="smart-bar-actions">
+        {% block bluemedia_gateway_detail_smart_bar_actions_cancel %}
+        <sw-button :routerLink="{ name: 'blue.media.gateways' }">
+            {{ $t('sw-settings-rule.detail.buttonCancel') }}
+        </sw-button>
+        {% endblock %}
+
+        {% block bluemedia_gateway_detail_smart_bar_save %}
+        <sw-button-process
+            :isLoading="isLoading"
+            :processSuccess="processSuccess"
+            variant="primary"
+            @process-finish="saveFinish"
+            @click="onClickSave">
+            {{ $t('sw-settings-rule.detail.buttonSave') }}
+        </sw-button-process>
+        {% endblock %}
+    </template>
+
+    <template slot="content">
+        {% block bluemedia_gateway_detail_content %}
+        <sw-card-view>
+            <sw-card v-if="gateway" :isLoading="isLoading">
+                {% block bluemedia_gateway_detail_content_title %}
+                <sw-container>
+                    <h1><strong>{{ gateway.name }}</strong></h1>
+                </sw-container>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_container_is_supported %}
+                    <sw-alert
+                            v-if="gateway.isSupported === false"
+                            variant="warning"
+                    >
+                        {{ $t('BlueMediaPayment.detail.notSupportedMessage') }}
+                    </sw-alert>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_container_name_type %}
+                    <sw-container columns="repeat(auto-fit, minmax(250px, 1fr)" gap="0px 30px">
+
+                        {% block bluemedia_gateway_detail_content_gateway_name %}
+                            <sw-field :label="$t('BlueMediaPayment.detail.name')"
+                                      v-model="gateway.name"
+                                      disabled></sw-field>
+                        {% endblock %}
+
+                        {% block bluemedia_gateway_detail_content_gateway_type %}
+                            <sw-field :label="$t('BlueMediaPayment.detail.type')"
+                                      :value="getTypeLabel(gateway.type)"
+                                      disabled></sw-field>
+                        {% endblock %}
+
+                    </sw-container>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_container_id_name %}
+                    <sw-container columns="repeat(auto-fit, minmax(250px, 1fr)" gap="0px 30px">
+                        {% block bluemedia_gateway_detail_content_gateway_id %}
+                            <sw-field :label="$t('BlueMediaPayment.detail.gatewayId')"
+                                      :value="gateway.gatewayId"
+                                      disabled></sw-field>
+                        {% endblock %}
+
+                        {% block bluemedia_gateway_detail_content_bank_name %}
+                            <sw-field :label="$t('BlueMediaPayment.gateways.fields.bankName')"
+                                      :value="gateway.bankName"
+                                      disabled></sw-field>
+                        {% endblock %}
+                    </sw-container>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_gateway_active %}
+                    <sw-entity-many-to-many-select
+                            :label="$t('BlueMediaPayment.gateways.fields.available')"
+                            v-model="gateway.salesChannelsActive"
+                            localMode="true"
+                            disabled>
+                    </sw-entity-many-to-many-select>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_gateway_enable %}
+                    <sw-entity-multi-select
+                            :label="$t('BlueMediaPayment.gateways.fields.enabled')"
+                            :entityCollection="gateway.salesChannelsEnabled"
+                            @change="setSalesChannelsEnabled">
+                    </sw-entity-multi-select>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_gateway_description %}
+                    <sw-textarea-field :label="$t('BlueMediaPayment.detail.description')"
+                                       v-model="gateway.description"
+                                       type="textarea"
+                                       disabled></sw-textarea-field>
+                {% endblock %}
+
+
+                {% block bluemedia_gateway_detail_content_media_upload %}
+                    <sw-media-upload-v2 class="sw-field"
+                        :scroll-target="$parent.$el"
+                        :source="gateway.media"
+                        :allow-multi-select="false"
+                        :default-folder="'product'"
+                        :upload-tag="gateway.id"
+                        :label="$t('BlueMediaPayment.detail.logo')"
+                        variant="regular"
+                        disabled></sw-media-upload-v2>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_created_at %}
+                    <sw-field :label="$t('BlueMediaPayment.gateways.fields.createdAt')"
+                              :value="gateway.createdAt"
+                              :disabled="true"></sw-field>
+                {% endblock %}
+
+                {% block bluemedia_gateway_detail_content_updated_at %}
+                    <sw-field :label="$t('BlueMediaPayment.gateways.fields.updatedAt')"
+                              :value="gateway.updatedAt"
+                              :disabled="true"></sw-field>
+                {% endblock %}
+            </sw-card>
+        </sw-card-view>
+        {% endblock %}
+    </template>
+</sw-page>
+{% endblock %}

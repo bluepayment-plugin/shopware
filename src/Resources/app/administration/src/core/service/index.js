@@ -1,5 +1,5 @@
-import BlueMediaConfigurationService from "./blue-media-configuration-service";
-import BlueMediaGatewaySyncService from "./blue-media-gateway-sync-service";
+import BlueMediaConfigurationService from "./autopay-configuration-service";
+import BlueMediaGatewaySyncService from "./autopay-gateway-sync-service";
 
 const {Application, Service} = Shopware;
 const initContainer = Application.getContainer('init');

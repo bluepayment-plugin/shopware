@@ -10,7 +10,7 @@ use function sprintf;
 
 class IntegrationNotEnabledException extends Exception
 {
-    private const MESSAGE = 'Blue Media Payment integration is not enabled for Sales Channel %s.';
+    private const MESSAGE = 'Autopay Payment integration is not enabled for Sales Channel %s.';
 
     public function __construct(string $salesChannelId)
     {

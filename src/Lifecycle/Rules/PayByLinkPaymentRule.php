@@ -11,6 +11,6 @@ class PayByLinkPaymentRule extends DetailedPaymentRule
     public function __construct(array $currencyIds = [])
     {
         parent::__construct($currencyIds);
-        $this->name = 'Blue Media PayByLink Payment [DO NOT EDIT]';
+        $this->name = 'Autopay PayByLink Payment [DO NOT EDIT]';
     }
 }

@@ -19,15 +19,15 @@ class GooglePayPayment extends AbstractPayment
         $this->translations = [
             'en-GB' => [
                 'name' => 'Google Pay',
-                'description' => 'Google Pay Blue Media Payment',
+                'description' => 'Google Pay Autopay Payment',
             ],
             'de-DE' => [
                 'name' => 'Google Pay',
-                'description' => 'Google Pay Blue Media-Zahlung',
+                'description' => 'Google Pay Autopay-Zahlung',
             ],
             'pl-PL' => [
                 'name' => 'Google Pay',
-                'description' => 'Płatność Google Pay Blue Media',
+                'description' => 'Płatność Google Pay Autopay',
             ],
         ];
     }

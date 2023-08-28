@@ -9,7 +9,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Blue Media Shopware 6 Payment Plugin Testsuite">
+        <testsuite name="Autopay Shopware 6 Payment Plugin Testsuite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

@@ -11,6 +11,6 @@ class GooglePayPaymentRule extends DetailedPaymentRule
     public function __construct(array $currencyIds = [])
     {
         parent::__construct($currencyIds);
-        $this->name = 'Blue Media Google Pay Payment [DO NOT EDIT]';
+        $this->name = 'Autopay Google Pay Payment [DO NOT EDIT]';
     }
 }

@@ -11,6 +11,6 @@ class ApplePayPaymentRule extends DetailedPaymentRule
     public function __construct(array $currencyIds = [])
     {
         parent::__construct($currencyIds);
-        $this->name = 'Blue Media Apple Pay Payment [DO NOT EDIT]';
+        $this->name = 'Autopay Apple Pay Payment [DO NOT EDIT]';
     }
 }

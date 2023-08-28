@@ -82,7 +82,7 @@ class OrderTransactionStateChangeEventListener implements EventSubscriberInterfa
             );
             $this->logger->info(
                 sprintf(
-                    'Order Paid by Blue Media (%s) set to (%s) based on payment status change',
+                    'Order Paid by Autopay (%s) set to (%s) based on payment status change',
                     $orderId,
                     StateMachineTransitionActions::ACTION_PROCESS
                 )

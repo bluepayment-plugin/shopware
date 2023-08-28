@@ -11,23 +11,23 @@ class DetailedBlueMediaPayment extends AbstractPayment
 {
     public function __construct()
     {
-        $this->name = 'Blue Media Payment';
+        $this->name = 'Autopay Payment';
         $this->position = -15;
         $this->handlerIdentifier = DetailedPaymentHandler::class;
         $this->afterOrderEnabled = true;
         $this->availabilityRuleId = DetailedPaymentRule::RULE_ID;
         $this->translations = [
             'en-GB' => [
-                'name' => 'Blue Media Payment',
-                'description' => 'Detailed Blue Media Online Payment',
+                'name' => 'Autopay Payment',
+                'description' => 'Detailed Autopay Online Payment',
             ],
             'de-DE' => [
-                'name' => 'Blue Media-Zahlung',
-                'description' => 'Detaillierte Blue Media Online-Zahlung',
+                'name' => 'Autopay-Zahlung',
+                'description' => 'Detaillierte Autopay Online-Zahlung',
             ],
             'pl-PL' => [
-                'name' => 'Płatność Blue Media',
-                'description' => 'Szczegółowa płatność online Blue Media',
+                'name' => 'Płatność Autopay',
+                'description' => 'Szczegółowa płatność online Autopay',
             ],
         ];
     }

@@ -1,9 +1,9 @@
-import '../core/component/blue-media-rule';
+import '../core/component/autopay-rule';
 
 Shopware.Application.addServiceProviderDecorator('ruleConditionDataProviderService', (ruleConditionService) => {
     ruleConditionService.addCondition('blue_media_rule', {
-        component: 'blue-media-rule',
-        label: 'Is any Blue Media Gateway Avaliable',
+        component: 'autopay-rule',
+        label: 'Is any Autopay Gateway Avaliable',
         scopes: ['global']
     });
 

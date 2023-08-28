@@ -10,6 +10,6 @@ class NoActiveGatewayIdSelected extends Exception
 {
     public function __construct()
     {
-        parent::__construct('No active Blue Media Gateway selected for Payment');
+        parent::__construct('No active Autopay Gateway selected for Payment');
     }
 }

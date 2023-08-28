@@ -10,7 +10,7 @@ use function sprintf;
 
 class ConfirmationCheckFailedException extends Exception
 {
-    private const MESSAGE = 'Blue Media confirmation check failed for Order %s / Transaction %s.';
+    private const MESSAGE = 'Autopay confirmation check failed for Order %s / Transaction %s.';
 
     public function __construct(string $orderId, string $transactionId)
     {

@@ -18,12 +18,12 @@ class CurrencyPaymentRule extends AbstractRule
     public function __construct(array $currencyIds = [])
     {
         $this->id = static::RULE_ID;
-        $this->name = 'Blue Media Payment Currency [DO NOT EDIT]';
+        $this->name = 'Autopay Payment Currency [DO NOT EDIT]';
         $this->description = implode("\n\n", [
             // phpcs:disable
-            "[English]\nA rule that blocks Blue Media Payment for not supported currencies. It is created automatically on the plugin install. DO NOT EDIT OR REMOVE this rule!",
-            "[Deutsch]\nEine Regel, die Blue Media Payment für nicht unterstützte Währungen blockiert. Es wird automatisch bei der Plugin-Installation erstellt. Diese Regel NICHT BEARBEITEN ODER ENTFERNEN!",
-            "[Polski]\nReguła blokująca Blue Media Payment dla nieobsługiwanych walut. Jest tworzona automatycznie podczas instalacji wtyczki. NIE EDYTUJ ANI NIE USUWAJ tej reguły!",
+            "[English]\nA rule that blocks Autopay Payment for not supported currencies. It is created automatically on the plugin install. DO NOT EDIT OR REMOVE this rule!",
+            "[Deutsch]\nEine Regel, die Autopay Payment für nicht unterstützte Währungen blockiert. Es wird automatisch bei der Plugin-Installation erstellt. Diese Regel NICHT BEARBEITEN ODER ENTFERNEN!",
+            "[Polski]\nReguła blokująca Autopay Payment dla nieobsługiwanych walut. Jest tworzona automatycznie podczas instalacji wtyczki. NIE EDYTUJ ANI NIE USUWAJ tej reguły!",
             // phpcs:enable
         ]);
         $this->priority = 100;

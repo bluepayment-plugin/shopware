@@ -19,15 +19,15 @@ class BlikPayment extends AbstractPayment
         $this->translations = [
             'en-GB' => [
                 'name' => 'BLIK',
-                'description' => 'BLIK Blue Media Payment',
+                'description' => 'BLIK Autopay Payment',
             ],
             'de-DE' => [
                 'name' => 'BLIK',
-                'description' => 'BLIK Blue Media-Zahlung',
+                'description' => 'BLIK Autopay-Zahlung',
             ],
             'pl-PL' => [
                 'name' => 'BLIK',
-                'description' => 'Płatność BLIK Blue Media',
+                'description' => 'Płatność BLIK Autopay',
             ],
         ];
     }

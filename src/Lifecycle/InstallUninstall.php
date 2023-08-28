@@ -89,14 +89,16 @@ class InstallUninstall
 
     private function addPaymentMethod(InstallContext $installContext, AbstractPayment $payment): void
     {
-        if ($this->getPaymentMethodId($installContext->getContext(), $payment)) {
-            return;
+        $paymentMethodId = $this->getPaymentMethodId($installContext->getContext(), $payment);
+
+        if (null !== $paymentMethodId) {
+            $payment->setId($paymentMethodId);
         }
 
         $payment->setPluginId($this->getPluginId($installContext->getPlugin(), $installContext->getContext()));
         $payload = $payment->jsonSerialize();
 
-        $this->paymentMethodRepository->create([$payload], $installContext->getContext());
+        $this->paymentMethodRepository->upsert([$payload], $installContext->getContext());
     }
 
     private function deactivatePaymentMethod(Context $context, AbstractPayment $payment): void

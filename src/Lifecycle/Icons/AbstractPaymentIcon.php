@@ -6,7 +6,7 @@ namespace BlueMedia\ShopwarePayment\Lifecycle\Icons;
 
 abstract class AbstractPaymentIcon
 {
-    public const BLUE_MEDIA_PAYMENTS_ICONS_FOLDER = 'Blue Media Payments - Icons';
+    public const BLUE_MEDIA_PAYMENTS_ICONS_FOLDER = 'Autopay Payments - Icons';
 
     protected string $blob = '';
 

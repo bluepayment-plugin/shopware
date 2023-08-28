@@ -8,7 +8,7 @@ use Exception;
 
 class BackgroundTransactionFailedException extends Exception
 {
-    private const MESSAGE = 'Could not init background Blue Media transaction for Transaction %s.';
+    private const MESSAGE = 'Could not init background Autopay transaction for Transaction %s.';
 
     public function __construct(string $transactionId)
     {

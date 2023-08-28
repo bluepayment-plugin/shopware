@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.0]
+
+- Rebranding
+
 ## [1.2.0]
 
 ### Added
@@ -27,4 +31,4 @@
 
 ## [1.0.0]
 
-- First version of the Blue Media Payment integration for Shopware
+- First version of the Autopay Payment integration for Shopware

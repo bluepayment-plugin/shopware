@@ -29,7 +29,7 @@ class IconsFactory
             case GooglePayPaymentHandler::class:
                 return new GooglePayPaymentIcon();
             default:
-                return null;
+                return new DefaultPaymentIcon();
         }
     }
 }

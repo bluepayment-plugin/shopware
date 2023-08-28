@@ -10,7 +10,7 @@ class TransactionInitFailedException extends Exception
 {
     public const REASON_UNKNOWN = 'INTERNAL_UNKNOWN';
 
-    private const MESSAGE = 'Could not init Blue Media transaction for Transaction %s. Reason: %s';
+    private const MESSAGE = 'Could not init Autopay transaction for Transaction %s. Reason: %s';
 
     public function __construct(string $transactionId, ?string $reason = null)
     {

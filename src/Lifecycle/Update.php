@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BlueMedia\ShopwarePayment\Lifecycle;
 
+use BlueMedia\ShopwarePayment\Lifecycle\Icons\AbstractPaymentIcon;
+use BlueMedia\ShopwarePayment\Lifecycle\Icons\IconsFactory;
 use BlueMedia\ShopwarePayment\Lifecycle\Payments\AbstractPayment;
 use BlueMedia\ShopwarePayment\Lifecycle\Payments\ApplePayPayment;
 use BlueMedia\ShopwarePayment\Lifecycle\Payments\BlikPayment;
@@ -31,6 +33,8 @@ use BlueMedia\ShopwarePayment\PaymentHandler\GooglePayPaymentHandler;
 use BlueMedia\ShopwarePayment\PaymentHandler\PayByLinkPaymentHandler;
 use BlueMedia\ShopwarePayment\PaymentHandler\QuickTransferPaymentHandler;
 use BlueMedia\ShopwarePayment\Provider\PaymentProvider;
+use Shopware\Core\Content\Media\MediaCollection;
+use Shopware\Core\Content\Media\MediaService;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -40,6 +44,7 @@ use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\UpdateContext;
 use Shopware\Core\Framework\Plugin\Util\PluginIdProvider;
 
+use Shopware\Core\Framework\Update\Exception\UpdateFailedException;
 use function array_map;
 use function array_values;
 use function version_compare;
@@ -56,17 +61,25 @@ class Update
 
     private ?RulesManager $rulesManager;
 
+    private IconsFactory $iconsFactory;
+
+    private MediaService $mediaService;
+
     public function __construct(
         EntityRepositoryInterface $paymentMethodRepository,
         EntityRepositoryInterface $ruleRepository,
         PluginIdProvider $pluginIdProvider,
         PaymentProvider $paymentProvider,
+        MediaService $mediaService,
+        IconsFactory $iconsFactory,
         ?RulesManager $rulesManager = null
     ) {
         $this->paymentMethodRepository = $paymentMethodRepository;
         $this->ruleRepository = $ruleRepository;
         $this->pluginIdProvider = $pluginIdProvider;
         $this->paymentProvider = $paymentProvider;
+        $this->mediaService = $mediaService;
+        $this->iconsFactory = $iconsFactory;
         $this->rulesManager = $rulesManager;
     }
 
@@ -78,6 +91,10 @@ class Update
 
         if (version_compare($updateContext->getCurrentPluginVersion(), '1.2.0', '<')) {
             $this->updateTo120($updateContext);
+        }
+
+        if (version_compare($updateContext->getCurrentPluginVersion(), '1.3.0', '<')) {
+            $this->updateTo130($updateContext);
         }
     }
 
@@ -160,6 +177,39 @@ class Update
         }
     }
 
+    public function updateTo130(UpdateContext $updateContext): void
+    {
+        /** @var AbstractPayment[] $payments */
+        $payments = [
+            new GeneralBlueMediaPayment(),
+            new ApplePayPayment(),
+            new BlikPayment(),
+            new CardPayment(),
+            new DetailedBlueMediaPayment(),
+            new GooglePayPayment(),
+            new PayByLinkPayment(),
+            new QuickTransferPayment(),
+        ];
+
+        $pluginId = $this->getPluginId($updateContext->getPlugin(), $updateContext->getContext());
+
+        foreach ($payments as $payment) {
+            $this->ensurePluginIdExist($payment, $pluginId, $updateContext->getContext());
+        }
+
+        /** @var AbstractPayment[] $payments */
+        $payments = [
+            new GeneralBlueMediaPayment(),
+            new DetailedBlueMediaPayment(),
+            new PayByLinkPayment(),
+            new QuickTransferPayment(),
+        ];
+
+        foreach ($payments as $payment) {
+            $this->overwrittePaymentMethodIcon($payment, $updateContext->getContext());
+        }
+    }
+
     private function addPaymentMethodIfNotExists(UpdateContext $updateContext, AbstractPayment $payment): void
     {
         if ($this->getPaymentMethodId($updateContext->getContext(), $payment)) {
@@ -191,6 +241,69 @@ class Update
         return $this->paymentProvider->getPaymentMethodIdByHandler(
             $payment->getHandlerIdentifier(),
             $context
+        );
+    }
+
+    private function ensurePluginIdExist(AbstractPayment $paymentMethodData, string $pluginId, Context $context): void
+    {
+        $paymentMethod = $this->paymentProvider->getPaymentMethodByHandler(
+            $paymentMethodData->getHandlerIdentifier(),
+            $context
+        );
+
+        if (null === $paymentMethod) {
+            throw new UpdateFailedException(
+                'The required payment method cannot be found. Uninstall and install the plugin again.'
+            );
+        }
+
+        if (null === $paymentMethod->getPluginId()) {
+            $data = [
+                'id' => $paymentMethod->getId(),
+                'pluginId' => $pluginId
+            ];
+
+            $this->paymentMethodRepository->update([$data], $context);
+        }
+    }
+
+    private function overwrittePaymentMethodIcon(AbstractPayment $payment, Context $context): void
+    {
+        $paymentMethod = $this->paymentProvider->getPaymentMethodByHandler(
+            $payment->getHandlerIdentifier(),
+            $context
+        );
+        if ($paymentMethod !== null) {
+            $expectedPaymentIcon = $this->iconsFactory->createFromPayment($paymentMethod);
+            if (null === $expectedPaymentIcon) {
+                return;
+            }
+
+            $paymentMethod = [
+                'id' => $paymentMethod->getId(),
+                'mediaId' => $this->getMediaId($paymentMethod->getName(), $expectedPaymentIcon, $context),
+            ];
+            $this->paymentMethodRepository->update([$paymentMethod], $context);
+        }
+    }
+
+    private function getMediaId(string $paymentMethodName, AbstractPaymentIcon $icon, Context $context): string
+    {
+        $fileName = preg_replace('/[^a-z0-9]+/', '-', strtolower($paymentMethodName)) . '-icon';
+
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('fileName', $fileName));
+
+        //Apply Default Icon if not created or empty
+        return $this->mediaService->saveFile(
+            $icon->getBlob(),
+            $icon->getExtension(),
+            $icon->getMime(),
+            $fileName,
+            $context,
+            $icon::BLUE_MEDIA_PAYMENTS_ICONS_FOLDER,
+            null,
+            false
         );
     }
 }

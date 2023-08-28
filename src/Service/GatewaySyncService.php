@@ -43,7 +43,7 @@ class GatewaySyncService
             try {
                 $this->processor->process($bmContext);
             } catch (Throwable $e) {
-                $this->logger->error('Failed to process Blue Media Gateways.', [
+                $this->logger->error('Failed to process Autopay Gateways.', [
                     'salesChannelId' => $salesChannelId,
                     'message' => $e->getMessage(),
                 ]);

@@ -1,8 +1,8 @@
-# Moduł BluePayment dla platformy Shopware 6
+# Moduł Autopay dla platformy Shopware 6
 
 ## Podstawowe informacje
 
-BluePayment to moduł płatności umożliwiający realizację transakcji bezgotówkowych w sklepie opartym na platformie Shopware. Jeżeli jeszcze nie masz wtyczki, możesz ją pobrać [tutaj](https://github.com/bluepayment-plugin/shopware/releases).
+Autopay to moduł płatności umożliwiający realizację transakcji bezgotówkowych w sklepie opartym na platformie Shopware. Jeżeli jeszcze nie masz wtyczki, możesz ją pobrać [tutaj](https://github.com/bluepayment-plugin/shopware/releases).
 
 ### Wymagania
 
@@ -16,7 +16,7 @@ Dostępny [tutaj](./CHANGELOG_pl-PL.md).
 ## Instalacja
 
 1. [Pobierz paczkę .zip](https://github.com/bluepayment-plugin/shopware/releases).
-2. Załóż konto w serwisie [PayBM](https://platnosci.bm.pl/) podając swoje dane firmowe. 
+2. Załóż konto w serwisie [Autopay](https://autopay.eu/) podając swoje dane firmowe. 
 3. Zaloguj się do swojego panelu administracyjnego Shopware.
 4. W panelu administracyjnym przejdź do `Extensions > My extensions` (`Rozszerzenia > Moje rozszerzenia`).
 
@@ -53,40 +53,40 @@ Dostępny [tutaj](./CHANGELOG_pl-PL.md).
 
 ## Konfiguracja
 
-Aby umożliwić klientom sklepu korzystanie z płatności Blue Media, należy połączyć moduł ze środowiskiem Blue Media oraz podpiąć metodę płatności do danego kanału sprzedaży.
+Aby umożliwić klientom sklepu korzystanie z płatności Autopay, należy połączyć moduł ze środowiskiem Autopay oraz podpiąć metodę płatności do danego kanału sprzedaży.
 
-### Wtyczka Blue Media Payment
+### Wtyczka Autopay Payment
 
 1. Wejdź w `Extensions > My extensions` (`Rozszerzenia > Moje rozszerzenia`).
-2. Naciśnij 3 kropki `...` przy wtyczce Blue Media, a następnie `Configuration` (`konfiguracja`).
+2. Naciśnij 3 kropki `...` przy wtyczce Autopay, a następnie `Configuration` (`konfiguracja`).
 
    ![konfiguracja](./docs-images/600-go-to-configuration.png)
 
 3. Wybierz kanał sprzedaży (Sales Channel), na którym chcesz aktywować integrację. Możesz także wybrać wszystkie kanały (`All Sales Channels`/`Wszystkie kanały sprzedaży`).
 4. Wypełnij pola konfiguracyjne:
-   - `Enable integration`/`Włącz integrację` (domyślnie: `disabled`/`wyłączone`) - włącza integrację z Blue Media na wybranym kanale sprzedaży
+   - `Enable integration`/`Włącz integrację` (domyślnie: `disabled`/`wyłączone`) - włącza integrację z Autopay na wybranym kanale sprzedaży
    - `Test mode`/`Tryb testowy` (domyślnie: `enabled`/`włączone`) - przełącznik między integracją produkcyjną a testową
-   - `Blue Media Gateway address`/`Adres bramki Blue Media` (domyślnie: `https://pay.bm.pl/`) - produkcyjny adres URL bramki Blue Media
-   - `Blue Media test gateway address`/`Adres bramki testowej Blue Media` (domyślnie: `https://pay-accept.bm.pl/`) - testowy adres URL bramki Blue Media (używany tylko, gdy `Test mode`/`Tryb testowy` jest włączony)
-   - `Service ID`/`Identyfikator serwisu` - numeryczny identyfikator (otrzymasz go od Blue Media)
-   - `Hash key`/`Klucz hash` - unikalny klucz przypisany do danego sklepu (otrzymasz go od Blue Media)
-   - `Hash encryption method`/`Metoda szyfrowania hash` (domyślnie: `SHA256`) - metoda szyfrowania hash używana przez Blue Media (musi być taka sama jak po stronie Blue Media w panelu `Konfiguracja Hasha`)
+   - `Autopay Gateway address`/`Adres bramki Autopay` (domyślnie: `https://pay.autopay.eu/`) - produkcyjny adres URL bramki Autopay
+   - `Autopay test gateway address`/`Adres bramki testowej Autopay` (domyślnie: `https://testpay.autopay.eu/`) - testowy adres URL bramki Autopay (używany tylko, gdy `Test mode`/`Tryb testowy` jest włączony)
+   - `Service ID`/`Identyfikator serwisu` - numeryczny identyfikator (otrzymasz go od Autopay)
+   - `Hash key`/`Klucz hash` - unikalny klucz przypisany do danego sklepu (otrzymasz go od Autopay)
+   - `Hash encryption method`/`Metoda szyfrowania hash` (domyślnie: `SHA256`) - metoda szyfrowania hash używana przez Autopay (musi być taka sama jak po stronie Autopay w panelu `Konfiguracja Hasha`)
    - `Verify Credentials Button`/`Zweryfikuj poświadczenia` - pozwala na weryfikację powyższej konfiguracji przed zapisem (ignoruje ustawienie `Enable integration`/`Włącz integrację`)
 
-   - `Process Order Status on Transaction Capture`/`Przetwarzaj status zamówienia podczas przechwytywania transkacji` - po włączeniu status zamówienia w Shopware będzie zmieniany na `In progress`, gdy transakcja zostanie zatwierdzona przez Blue Media
+   - `Process Order Status on Transaction Capture`/`Przetwarzaj status zamówienia podczas przechwytywania transkacji` - po włączeniu status zamówienia w Shopware będzie zmieniany na `In progress`, gdy transakcja zostanie zatwierdzona przez Autopay
 
 ### Metoda płatności
 
-Metody płatności Blue Media tworzone są w momencie instalacji modułu. Aby aktywować metodę płatności w sklepie, należy przypisać ją w ustawieniach danego kanału sprzedaży. 
+Metody płatności Autopay tworzone są w momencie instalacji modułu. Aby aktywować metodę płatności w sklepie, należy przypisać ją w ustawieniach danego kanału sprzedaży. 
 
-Metoda płatności Blue Media jest aktywowana i deaktywowana równolegle z całym modułem. Można ją jednak deaktywować również ręcznie w panelu administracyjnym (`Settings > Payment methods`).
+Metoda płatności Autopay jest aktywowana i deaktywowana równolegle z całym modułem. Można ją jednak deaktywować również ręcznie w panelu administracyjnym (`Settings > Payment methods`).
 
 Przed przystąpieniem do konfiguracji kanału sprzedaży upewnij się, że moduł i metoda płatności są aktywne.
 
-1. Aby umożliwić klientom kanału sprzedaży korzystanie z płatności Blue Media, przejdź do ustawień kanału sprzedaży.
+1. Aby umożliwić klientom kanału sprzedaży korzystanie z płatności Autopay, przejdź do ustawień kanału sprzedaży.
 
    ![kanały sprzedaży](./docs-images/700-sales-channels.png)
-2. W polu `Payment methods` (`Metody płatności`) dodaj metodę płatności Blue Media Payment.
+2. W polu `Payment methods` (`Metody płatności`) dodaj metodę płatności Autopay Payment.
 
    ![kanał sprzedaży - metody płatności](./docs-images/800-sales-channel-payment-methods.png)
 3. W polu Currencies dodaj walutę “Polish Zloty”. Tylko ta waluta jest obsługiwana przez wtyczkę.
@@ -97,9 +97,9 @@ Przed przystąpieniem do konfiguracji kanału sprzedaży upewnij się, że modu�
 
 ### Zarządzanie dodatkowymi metodami płatności (Lista Bramek Płatności)
 
-Poza przypisaniem metody płatności do kanału sprzedaży należy również aktywować odpowiednią bramkę płatności Blue Media
+Poza przypisaniem metody płatności do kanału sprzedaży należy również aktywować odpowiednią bramkę płatności Autopay
 
-1. W menu wybierz `Orders -> Blue Media Gateways` / `Zamówienia -> Bramki Blue Media`
+1. W menu wybierz `Orders -> Autopay Gateways` / `Zamówienia -> Bramki Autopay`
 
 ![blue_media_gateways](./docs-images/1000-blue-media-gateways.png)
 
@@ -109,7 +109,7 @@ Poza przypisaniem metody płatności do kanału sprzedaży należy również akt
 
 ### Szczegółowe metody płatności
 
-1. Szczególowa metoda płatności Blue Media z opcją wyboru bramki płatności pozwala na wybór z pogrupowanej listy wyboru odpowiedniej bramki płatności jeszcze przed przekierowaniem do dostawcy płatności:
+1. Szczególowa metoda płatności Autopay z opcją wyboru bramki płatności pozwala na wybór z pogrupowanej listy wyboru odpowiedniej bramki płatności jeszcze przed przekierowaniem do dostawcy płatności:
 
 ![detailed_payment_checkout](./docs-images/1100-detailed-payment-checkout.png)
 
@@ -117,21 +117,21 @@ Poza przypisaniem metody płatności do kanału sprzedaży należy również akt
    
 ![quick-transfer_checkout](./docs-images/1200-quick-transfer-checkout.png)
 
-3. Metody Szybki przelew, Pay by Link itp. (niesygnowane ikoną Blue Media) integrują się ze sklepem i posiadają własną implementację zachowania:
+3. Metody Szybki przelew, Pay by Link itp. (niesygnowane ikoną Autopay) integrują się ze sklepem i posiadają własną implementację zachowania:
 
 - Szybki przelew podaje dane do przelewu na stronie podsumowania zamówienia:
 
 ![quick-transfer_summary](./docs-images/1300-quick-transfer-summary.png)
 
-- Pay by link - przekierowuje bezpośrednio na stronę banku, z pominięciem BlueMedia. 
+- Pay by link - przekierowuje bezpośrednio na stronę banku, z pominięciem Autopay. 
 
 - Google Pay - możliwa jest płatność kartą z wykorzystaniem Google Pay
     - podczas składania zamówienia dodatkowo pojawi się popup pozwalający na wybór jednej z kart płatniczych GooglePay
-    - następnie zamówienie zostanie złożone a token karty zostanie przekazany do Blue Media w celu autoryzacji płatności
+    - następnie zamówienie zostanie złożone a token karty zostanie przekazany do Autopay w celu autoryzacji płatności
 ### Dodatkowe informacje
 
 Podczas instalacji moduł:
-- tworzy metodę płatności Blue Media (general - redirect do BlueMedia)
+- tworzy metodę płatności Autopay (general - redirect do Autopay)
 - tworzy dodatkowe metody płatności:
   - Szczególową metodę płatności - umożliwiająca zarządzanie poszczególnymi bramkami płatności,
   - Metody specyficzne (white-label):

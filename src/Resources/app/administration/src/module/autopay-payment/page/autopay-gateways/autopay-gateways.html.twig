@@ -1,0 +1,82 @@
+{% block bluemedia_gateway_list %}
+<sw-page>
+    <template slot="smart-bar-header">
+        {% block bluemedia_gateway_list_header %}
+        <h2>{{ $t('BlueMediaPayment.gateways.pageHeader') }}</h2>
+        {% endblock %}
+    </template>
+
+    <template #smart-bar-actions>
+        {% block bluemedia_gateway_list_actions_save %}
+        <sw-button-process
+            variant="primary"
+            :isLoading="isLoading"
+            :disabled="isLoading"
+            :processSuccess="isSaveSuccessful"
+            @click.prevent="reloadGateways">
+            {{ $t('BlueMediaPayment.gateways.reloadGateways') }}
+        </sw-button-process>
+        {% endblock %}
+    </template>
+
+    <template slot="content">
+        {% block bluemedia_gateway_list_content %}
+        <sw-entity-listing
+            v-if="gatewayList"
+            :items="gatewayList"
+            :repository="repository"
+            :showSelection="false"
+            :columns="columns"
+            :fullPage="false"
+            :isLoading="isLoading"
+            :sortBy="sortBy"
+            :sortDirection="sortDirection"
+            :allowColumnEdit="false"
+            :allowInlineEdit="false"
+            :allow-delete="false"
+            @column-sort="onColumnSort"
+            detailRoute="blue.media.detail">
+
+            <template slot="column-type" slot-scope="{ item }">
+                {% block bluemedia_gateway_list_content_type %}
+                    {{ getTypeLabel(item.type) }}
+                {% endblock %}
+            </template>
+
+            <template #column-available="{ item }">
+                {% block bluemedia_gateway_list_content_available %}
+                    <sw-event-action-list-expand-labels
+                            v-if="item.salesChannelsActive.length"
+                            :items="item.salesChannelsActive">
+                    </sw-event-action-list-expand-labels>
+                {% endblock %}
+            </template>
+
+            <template #column-enabled="{ item }">
+                {% block bluemedia_gateway_list_content_enabled %}
+                    <sw-event-action-list-expand-labels
+                        v-if="item.salesChannelsEnabled.length"
+                        :items="item.salesChannelsEnabled">
+                    </sw-event-action-list-expand-labels>
+                {% endblock %}
+            </template>
+
+            <template #column-isSupported="{ item }">
+                {% block bluemedia_gateway_list_content_is_supported %}
+                    <sw-icon name="small-default-checkmark-line-medium"
+                             small v-if="item.isSupported"
+                             color="#1abc9c"
+                             style="margin: 0 auto;"
+                             class="is--active"></sw-icon>
+                    <sw-icon name="small-default-x-line-medium"
+                             style="margin: 0 auto;"
+                             color="#d35400"
+                             small v-else class="is--inactive"></sw-icon>
+                {% endblock %}
+            </template>
+
+        </sw-entity-listing>
+        {% endblock %}
+    </template>
+</sw-page>
+{% endblock %}

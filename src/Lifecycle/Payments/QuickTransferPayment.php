@@ -19,15 +19,15 @@ class QuickTransferPayment extends AbstractPayment
         $this->translations = [
             'en-GB' => [
                 'name' => 'Quick transfer',
-                'description' => 'Quick transfer Blue Media Payment',
+                'description' => 'Quick transfer Autopay Payment',
             ],
             'de-DE' => [
                 'name' => 'Schnelle Übertragung',
-                'description' => 'Schnelle Überweisung Blue Media-Zahlung',
+                'description' => 'Schnelle Überweisung Autopay-Zahlung',
             ],
             'pl-PL' => [
                 'name' => 'Szybki przelew',
-                'description' => 'Płatność Szybki przelew Blue Media',
+                'description' => 'Płatność Szybki przelew Autopay',
             ],
         ];
     }

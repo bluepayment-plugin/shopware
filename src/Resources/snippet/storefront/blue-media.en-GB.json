@@ -1,7 +1,7 @@
 {
     "checkout": {
-        "blue-media-gateway-not-selected-error": "Please select Blue Media payment gateway.",
-        "blue-media-gateway-group": {
+        "blue-media-gateway-not-selected-error": "Please select Autopay payment gateway.",
+        "autopay-gateway-group": {
             "portfel-elektroniczny": {
                 "label": "Electronic wallet",
                 "description": ""

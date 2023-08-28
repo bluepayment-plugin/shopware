@@ -19,15 +19,15 @@ class PayByLinkPayment extends AbstractPayment
         $this->translations = [
             'en-GB' => [
                 'name' => 'Online bank transfer',
-                'description' => 'PayByLink Blue Media Payment',
+                'description' => 'PayByLink Autopay Payment',
             ],
             'de-DE' => [
                 'name' => 'Online-Banküberweisung',
-                'description' => 'PayByLink Blue Media-Zahlung',
+                'description' => 'PayByLink Autopay-Zahlung',
             ],
             'pl-PL' => [
                 'name' => 'Przelew internetowy',
-                'description' => 'Płatność PayByLink Blue Media',
+                'description' => 'Płatność PayByLink Autopay',
             ],
         ];
     }
