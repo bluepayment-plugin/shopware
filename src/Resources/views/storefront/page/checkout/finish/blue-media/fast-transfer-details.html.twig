@@ -15,7 +15,7 @@
                                 {{ "checkout.blue-media-quick-transfer-details.subtitle"|trans|sw_sanitize }}
                             </p>
                         {% endblock %}
-
+                        
                         {% block page_checkout_finish_blue_media_details_data %}
                             <p>
                                 <strong>{{ "checkout.blue-media-quick-transfer-details.receiverNRB"|trans|sw_sanitize }}</strong>
@@ -38,15 +38,17 @@
                                 {{ (blueMediaTransactionDetails.amount * 1)|currency(blueMediaTransactionDetails.currency) }}
                             </p>
                             {% block page_checkout_finish_blue_media_details_button %}
-                            <p v-if="blueMediaTransactionDetails.bankHref">
-                                <a href="{{ blueMediaTransactionDetails.bankHref }}"
-                                   title="{{ blueMediaTransactionDetails.bankHref }}"
-                                   target="_blank"
-                                   rel="noopener"
-                                   class="btn btn-primary">
-                                    {{ "checkout.blue-media-quick-transfer-details.button"|trans|sw_sanitize }}
-                                </a>
-                            </p>
+                                {% if blueMediaTransactionDetails.bankHref %}
+                                    <p>
+                                        <a href="{{ blueMediaTransactionDetails.bankHref }}"
+                                           title="{{ blueMediaTransactionDetails.bankHref }}"
+                                           target="_blank"
+                                           rel="noopener"
+                                           class="btn btn-primary">
+                                            {{ "checkout.blue-media-quick-transfer-details.button"|trans|sw_sanitize }}
+                                        </a>
+                                    </p>
+                                {% endif %}
                             {% endblock %}
                         {% endblock %}
                     </div>

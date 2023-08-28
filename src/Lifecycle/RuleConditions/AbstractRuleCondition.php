@@ -19,5 +19,5 @@ abstract class AbstractRuleCondition implements JsonSerializable
 
     protected string $ruleId;
 
-    protected string $parentId;
+    protected ?string $parentId = null;
 }

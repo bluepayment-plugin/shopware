@@ -83,6 +83,7 @@ class GatewayProvider
     {
         $criteria = new Criteria();
         $criteria->addAssociation('logoMedia');
+        $criteria->addAssociation('currencies.currency');
 
         $criteria->addFilter(new EqualsFilter('salesChannelsActive.id', $context->getSalesChannelId()));
         $criteria->addFilter(new EqualsFilter('salesChannelsEnabled.id', $context->getSalesChannelId()));

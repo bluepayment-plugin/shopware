@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0]
+
+### Added
+
+- Currency support - CZK and Euro
+
+### Fixed
+
+- Fixed a low incidence issue with redirection to the final stage of checkout when paying with a payment card
+
 ## [1.1.0]
 
 ### Added

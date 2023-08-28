@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace BlueMedia\ShopwarePayment\Lifecycle\Rules;
 
-use Shopware\Core\Framework\Rule\Container\AndRule;
-use Shopware\Core\Framework\Rule\Rule;
-use Shopware\Core\System\Currency\Rule\CurrencyRule;
-
 class DetailedPaymentRule extends AbstractRule
 {
     public const RULE_ID = '04f40d38b7c94643ba0aeab09b9b5f5f';
 
-    public function __construct(array $currencyIds = [])
+    public function __construct()
     {
         $this->id = static::RULE_ID;
         $this->name = 'Blue Media Detailed Payment [DO NOT EDIT]';
@@ -25,19 +21,6 @@ class DetailedPaymentRule extends AbstractRule
         ]);
         $this->priority = 110;
         $this->moduleTypes = ['types' => ['payment']];
-        $this->conditions = [
-            [
-                'type' => (new AndRule())->getName(),
-                'children' => [
-                    [
-                        'type' => (new CurrencyRule())->getName(),
-                        'value' => [
-                            'currencyIds' => $currencyIds,
-                            'operator' => Rule::OPERATOR_EQ,
-                        ],
-                    ],
-                ],
-            ],
-        ];
+        $this->conditions = null;
     }
 }

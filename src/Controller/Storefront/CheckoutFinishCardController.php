@@ -36,8 +36,8 @@ class CheckoutFinishCardController extends StorefrontController
     /**
      * @Route(
      *     "/blue-payment/checkout/card",
-     *     name="blue-payment.checkout.card.order",
-     *     options={"seo"="false"},
+     *     name="payment.blue-payment.checkout.card",
+     *     options={"seo"=false},
      *     methods={"POST"},
      *     defaults={"XmlHttpRequest"=true}
      * )

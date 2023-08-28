@@ -32,8 +32,8 @@ class CheckoutFinishGooglePayController extends StorefrontController
     /**
      * @Route(
      *     "/blue-payment/checkout/google-pay",
-     *     name="blue-payment.checkout.google-pay.order",
-     *     options={"seo"="false"},
+     *     name="payment.blue-payment.checkout.google-pay",
+     *     options={"seo"=false},
      *     methods={"POST"},
      *     defaults={"XmlHttpRequest"=true}
      * )
@@ -43,8 +43,6 @@ class CheckoutFinishGooglePayController extends StorefrontController
         SalesChannelContext $context,
         Request $request
     ): JsonResponse {
-
-
         try {
             $client = $this->clientFactory->createFromPluginConfig($context->getSalesChannelId());
             $response = $client->getGooglePayMerchantInfo($this->getCurrentDomain($context));
@@ -68,12 +66,16 @@ class CheckoutFinishGooglePayController extends StorefrontController
         $domainId = $context->getDomainId();
         $domains = $context->getSalesChannel()->getDomains();
 
+        /** @var SalesChannelDomainEntity $domain */
         $domain = $domains->first();
         if (null !== $domainId) {
             $domain = $domains->filter(fn(SalesChannelDomainEntity $domain) => $domainId === $domain->getId())->first();
         }
 
-        return $this->removeProtocol($domain->getUrl());
+        $url = $this->removeProtocol($domain->getUrl());
+        $url = explode('/', $url);
+
+        return $url[0];
     }
 
     private function removeProtocol(string $url): string

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transaction>
+    <receiverNRB>47 1050 1764 1000 0023 2741 0516</receiverNRB>
+    <receiverName>Blue Media</receiverName>
+    <receiverAddress>81-717 Sopot, ul. Haffnera 6</receiverAddress>
+    <orderID>12345</orderID>
+    <amount>5.12</amount>
+    <currency>PLN</currency>
+    <title>Test transaction 12345</title>
+    <remoteID>12345</remoteID>
+    <bankHref>https://ssl.bsk.com.pl/bskonl/login.html</bankHref>
+    <returnURL>https://google.pl</returnURL>
+    <hash>
+        1d9d630687b76dd1250448af38f4981f425503ca3ea1426142b5ff537b1eca08
+    </hash>
+</transaction>

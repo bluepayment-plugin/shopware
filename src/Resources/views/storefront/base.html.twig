@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_script_router %}
+    {{ parent() }}
+
+    <script>
+        window.router['payment.blue-payment.checkout.card'] = '{{ path('payment.blue-payment.checkout.card') }}';
+        window.router['payment.blue-payment.checkout.google-pay'] = '{{ path('payment.blue-payment.checkout.google-pay') }}';
+    </script>
+{% endblock %}

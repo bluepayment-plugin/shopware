@@ -8,6 +8,9 @@ use Shopware\Core\Framework\Rule\Container\AndRule;
 use Shopware\Core\Framework\Rule\Rule;
 use Shopware\Core\System\Currency\Rule\CurrencyRule;
 
+/**
+ * @deprecated Since v1.2.0 use only in update lifecycle
+ */
 class CurrencyPaymentRule extends AbstractRule
 {
     public const RULE_ID = '80b7d51305f642458a259b547642f8d7';

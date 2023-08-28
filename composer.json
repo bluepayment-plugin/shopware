@@ -1,7 +1,7 @@
 {
     "name": "blue-media/shopware-payment",
     "description": "Blue Media Integration Shopware",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "config": {

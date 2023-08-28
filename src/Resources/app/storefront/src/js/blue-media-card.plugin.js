@@ -26,7 +26,7 @@ export default class BlueMediaCardPlugin extends Plugin {
         const loader = new ButtonLoadingIndicator(this.button);
         loader.create();
 
-        this._client.post('/blue-payment/checkout/card', new FormData(this.form), (responseText, request) => {
+        this._client.post(window.router['payment.blue-payment.checkout.card'], new FormData(this.form), (responseText, request) => {
             if (request.status >= 400) {
                 window.location.reload();
             }

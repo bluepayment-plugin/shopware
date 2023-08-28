@@ -11,8 +11,8 @@ class GatewayAvailableRuleCondition extends AbstractRuleCondition
 {
     public function __construct(
         string $ruleId,
-        string $parentId,
-        string $paymentHandler
+        string $paymentHandler,
+        ?string $parentId = null
     ) {
         $this->id = Uuid::randomHex();
         $this->type = (new BlueMediaGatewayAvailable())->getName();

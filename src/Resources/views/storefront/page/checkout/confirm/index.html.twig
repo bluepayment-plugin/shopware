@@ -4,8 +4,13 @@
 
 {% block page_checkout_main_content %}
     {% if blueMediaCardPaymentAvailable(context) %}
-        <script src="https://cards.bm.pl/integration/checkout.js"></script>
+        {% if config('BlueMediaShopwarePayment.config.testMode') %}
+            <script src="https://cards-accept.bm.pl/integration/checkout.js"></script>
+        {% else %}
+            <script src="https://cards.bm.pl/integration/checkout.js"></script>
+        {% endif %}
     {% endif %}
+
     {% if blueMediaGooglePayPayment %}
         <script src="https://pay.google.com/gp/p/js/pay.js"></script>
     {% endif %}
@@ -20,12 +25,15 @@
               {% if blueMediaCardPayment %}
                   data-blue-media-card-payment="true"
               {% elseif blueMediaGooglePayPayment %}
+                  {% set languageIsoCode = page.header.activeLanguage.translationCode.code|split('-') %}
                   {% set blueMediaGooglePayOptions = {
                       environment : config('BlueMediaShopwarePayment.config.testMode') ? 'TEST' : 'PRODUCTION',
+                      transactionCurrencyCode: context.currency.isoCode,
+                      transactionCountryCode: languageIsoCode[1]|upper,
                       transactionAmount: page.cart.price.totalPrice,
                       bmInitRequest: {
-                          path: path('blue-payment.checkout.google-pay.order'),
-                          token: sw_csrf('blue-payment.checkout.google-pay.order', {'mode': 'token'}),
+                          path: path('payment.blue-payment.checkout.google-pay'),
+                          token: sw_csrf('payment.blue-payment.checkout.google-pay', {'mode': 'token'}),
                       },
                   } %}
                   data-blue-media-google-pay-payment="true"
@@ -39,7 +47,7 @@
 
             {% block page_checkout_aside_actions_csrf %}
                 {% if blueMediaCardPayment %}
-                    {{ sw_csrf('blue-payment.checkout.card.order') }}
+                    {{ sw_csrf('payment.blue-payment.checkout.card') }}
                 {% else %}
                     {{ sw_csrf('frontend.checkout.finish.order') }}
                 {% endif %}

@@ -21,5 +21,5 @@ abstract class AbstractRule implements JsonSerializable
 
     protected array $moduleTypes = [];
 
-    protected array $conditions = [];
+    protected ?array $conditions = [];
 }

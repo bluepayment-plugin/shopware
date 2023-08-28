@@ -32,6 +32,7 @@ class BlueMediaGatewayAvailable extends Rule
     {
         if ($scope instanceof CartRuleScope && is_string($this->paymentHandler)) {
             $gatewayListCollection = $scope->getSalesChannelContext()->getExtension(Constants::GATEWAYS_EXTENSION_NAME);
+
             if ($gatewayListCollection instanceof GatewayListCollection) {
                 $gatewayListStruct = $this->getGatewayListForHandler($gatewayListCollection, $this->paymentHandler);
 

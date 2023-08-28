@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<regulationList>
+    <serviceID>123456</serviceID>
+    <messageID>cb9348f5b1fc7ff2a951e6424f19f46c</messageID>
+    <regulations>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1800</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1800</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1801</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1801</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1802</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1802</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1803</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1803</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1804</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1804</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1805</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1805</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1806</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1806</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1807</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1807</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1808</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1808</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1809</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1809</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>2</regulationID>
+            <type>DEFAULT</type>
+            <language>EN</language>
+            <inputLabel>By choosing the “start the payment” button, you agree to commence the transaction in your bank and to delivery of its details to the recipient of the resources. The provider of the service is Blue Media S.A. with its registered office in Sopot (address: ul. Powstańców Warszawy 6, 81-718 Sopot, email: pomoc@bm.pl), supervised by the Polish Financial Supervision Authority (KNF) (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) and entered into the Register of National Payment Institutions under the number IP17/2013.</inputLabel>
+            <gatewayID>1810</gatewayID>
+        </regulation>
+        <regulation>
+            <regulationID>1</regulationID>
+            <type>DEFAULT</type>
+            <language>PL</language>
+            <inputLabel>Wybierając przycisk „rozpocznij płatność”, zgadzasz się na rozpoczęcie transakcji w Twoim banku i dostarczenie jej szczegółów do odbiorcy środków. Dostawcą usługi jest Blue Media S.A. z siedzibą w Sopocie (ul. Powstańców Warszawy 6, 81-718 Sopot, e-mail: pomoc@bm.pl), nadzorowana przez Komisję Nadzoru Finansowego (&lt;a href="https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe" target="_blank"&gt;https://www.knf.gov.pl/o_nas/urzad_komisji/dane_teleadresowe&lt;/a&gt;) i wpisana do rejestru krajowych instytucji płatniczych pod numerem IP17/2013.</inputLabel>
+            <gatewayID>1810</gatewayID>
+        </regulation>
+    </regulations>
+    <hash>1cda0e670c169f46cc4ea9fc61783381edacbc61ee2f0160de7d57455f06948d</hash>
+</regulationList>

@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0]
+
+### Dodano
+
+- Obsługa walut - CZK oraz Euro
+
+### Naprawiono
+
+- Naprawiono problem o niskiej występowalności dotyczący przekierowania do końcowego etapu koszyka przy realizacji płatności kartą płatniczą
+
 ## [1.1.0]
 
 ### Dodano

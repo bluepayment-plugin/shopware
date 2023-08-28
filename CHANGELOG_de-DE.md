@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0]
+
+### Hinzugefügt
+
+- Währungsunterstützung - CZK und Euro
+
+### Fixed
+
+- Es wurde ein Problem mit geringer Häufigkeit bei der Weiterleitung zur letzten Phase des Warenkorbs beim Bezahlen mit einer Zahlungskarte behoben
+
 ## [1.1.0]
 
 ### Hinzugefügt

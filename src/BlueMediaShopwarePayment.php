@@ -7,6 +7,8 @@ namespace BlueMedia\ShopwarePayment;
 use BlueMedia\ShopwarePayment\Lifecycle\ActivateDeactivate;
 use BlueMedia\ShopwarePayment\Lifecycle\DatabaseUninstall;
 use BlueMedia\ShopwarePayment\Lifecycle\InstallUninstall;
+use BlueMedia\ShopwarePayment\Lifecycle\Rules\RulesManager;
+use BlueMedia\ShopwarePayment\Lifecycle\Update;
 use BlueMedia\ShopwarePayment\Provider\PaymentProvider;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
@@ -47,10 +49,10 @@ class BlueMediaShopwarePayment extends Plugin
 
     public function update(UpdateContext $updateContext): void
     {
-        parent::update($updateContext);
-
-        $this->getInstallUninstallLifecycle()
+        $this->getUpdateLifecycle($updateContext)
             ->update($updateContext);
+
+        parent::update($updateContext);
     }
 
     public function deactivate(DeactivateContext $deactivateContext): void
@@ -74,20 +76,51 @@ class BlueMediaShopwarePayment extends Plugin
 
     private function getInstallUninstallLifecycle(): InstallUninstall
     {
+        $paymentProvider = new PaymentProvider(
+            $this->container->get('payment_method.repository')
+        );
+
         return new InstallUninstall(
             $this->container->get('payment_method.repository'),
-            $this->container->get('currency.repository'),
-            $this->container->get('rule.repository'),
             $this->container->get(PluginIdProvider::class),
-            new PaymentProvider(
-                $this->container->get('payment_method.repository')
-            ),
-            new DatabaseUninstall($this->container->get(Connection::class))
+            $paymentProvider,
+            new DatabaseUninstall($this->container->get(Connection::class)),
+            new RulesManager(
+                $this->container->get('payment_method.repository'),
+                $this->container->get('rule.repository'),
+                $this->container->get('rule_condition.repository'),
+                $paymentProvider
+            )
         );
     }
 
     private function getActivateDeactivateLifecycle(): ActivateDeactivate
     {
         return $this->container->get(ActivateDeactivate::class);
+    }
+
+    private function getUpdateLifecycle(UpdateContext $updateContext): Update
+    {
+        $paymentMethodRepository = $this->container->get('payment_method.repository');
+        $ruleRepository = $this->container->get('rule.repository');
+        $paymentProvider = new PaymentProvider($paymentMethodRepository);
+
+        $ruleManager =
+            $updateContext->getPlugin()->isActive() ?
+                $this->container->get(RulesManager::class) :
+                new RulesManager(
+                    $paymentMethodRepository,
+                    $ruleRepository,
+                    $this->container->get('rule_condition.repository'),
+                    $paymentProvider
+                );
+
+        return new Update(
+            $paymentMethodRepository,
+            $ruleRepository,
+            $this->container->get(PluginIdProvider::class),
+            $paymentProvider,
+            $ruleManager
+        );
     }
 }

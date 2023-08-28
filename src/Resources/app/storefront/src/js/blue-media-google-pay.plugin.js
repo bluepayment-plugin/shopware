@@ -73,7 +73,7 @@ export default class BlueMediaGooglePayPlugin extends Plugin {
         }
 
         const response = JSON.parse(responseText);
-        if (request.error === true) {
+        if (response.error === true) {
             this.onErrorCallback('Can not collect GooglePay init data! Check configuration!')
         }
 
