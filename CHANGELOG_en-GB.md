@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1]
+
+### Fixed
+
+- Fixed an error occurring when updating the plugin from older versions to the latest version
+
 ## [1.3.0]
 
 - Rebranding

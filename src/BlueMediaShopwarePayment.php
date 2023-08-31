@@ -7,13 +7,13 @@ namespace BlueMedia\ShopwarePayment;
 use BlueMedia\ShopwarePayment\Lifecycle\ActivateDeactivate;
 use BlueMedia\ShopwarePayment\Lifecycle\DatabaseUninstall;
 use BlueMedia\ShopwarePayment\Lifecycle\Icons\IconsFactory;
+use BlueMedia\ShopwarePayment\Lifecycle\Icons\ProxyMediaService;
 use BlueMedia\ShopwarePayment\Lifecycle\InstallUninstall;
 use BlueMedia\ShopwarePayment\Lifecycle\Rules\RulesManager;
 use BlueMedia\ShopwarePayment\Lifecycle\Update;
 use BlueMedia\ShopwarePayment\Provider\PaymentProvider;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
-use Shopware\Core\Content\Media\MediaService;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
@@ -106,8 +106,7 @@ class BlueMediaShopwarePayment extends Plugin
         $paymentMethodRepository = $this->container->get('payment_method.repository');
         $ruleRepository = $this->container->get('rule.repository');
         $paymentProvider = new PaymentProvider($paymentMethodRepository);
-        $mediaService = $this->container->get(MediaService::class);
-        $iconsFactory = new IconsFactory();
+
         $ruleManager =
             $updateContext->getPlugin()->isActive() ?
                 $this->container->get(RulesManager::class) :
@@ -123,8 +122,8 @@ class BlueMediaShopwarePayment extends Plugin
             $ruleRepository,
             $this->container->get(PluginIdProvider::class),
             $paymentProvider,
-            $mediaService,
-            $iconsFactory,
+            $this->container->get(ProxyMediaService::class),
+            new IconsFactory(),
             $ruleManager
         );
     }

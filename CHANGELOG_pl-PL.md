@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1]
+
+### Naprawiono
+
+- Naprawiono występujący błąd podczas aktualizacji wtyczki ze starszych wersji do najnowszej
+
 ## [1.3.0]
 
 - Rebranding

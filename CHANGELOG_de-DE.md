@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1]
+
+### Festgelegt
+
+- Fehler behoben, der bei der Aktualisierung des Plugins von älteren Versionen auf die neueste Version auftrat
+
 ## [1.3.0]
 
 - Rebranding

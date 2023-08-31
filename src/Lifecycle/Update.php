@@ -33,7 +33,7 @@ use BlueMedia\ShopwarePayment\PaymentHandler\GooglePayPaymentHandler;
 use BlueMedia\ShopwarePayment\PaymentHandler\PayByLinkPaymentHandler;
 use BlueMedia\ShopwarePayment\PaymentHandler\QuickTransferPaymentHandler;
 use BlueMedia\ShopwarePayment\Provider\PaymentProvider;
-use Shopware\Core\Content\Media\MediaCollection;
+use Shopware\Core\Content\Media\Exception\DuplicatedMediaFileNameException;
 use Shopware\Core\Content\Media\MediaService;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
@@ -43,8 +43,8 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\UpdateContext;
 use Shopware\Core\Framework\Plugin\Util\PluginIdProvider;
-
 use Shopware\Core\Framework\Update\Exception\UpdateFailedException;
+
 use function array_map;
 use function array_values;
 use function version_compare;
@@ -260,7 +260,7 @@ class Update
         if (null === $paymentMethod->getPluginId()) {
             $data = [
                 'id' => $paymentMethod->getId(),
-                'pluginId' => $pluginId
+                'pluginId' => $pluginId,
             ];
 
             $this->paymentMethodRepository->update([$data], $context);
@@ -279,9 +279,15 @@ class Update
                 return;
             }
 
+            try {
+                $mediaId = $this->getMediaId($paymentMethod->getName(), $expectedPaymentIcon, $context);
+            } catch (DuplicatedMediaFileNameException $exception) {
+                return;
+            }
+
             $paymentMethod = [
                 'id' => $paymentMethod->getId(),
-                'mediaId' => $this->getMediaId($paymentMethod->getName(), $expectedPaymentIcon, $context),
+                'mediaId' => $mediaId,
             ];
             $this->paymentMethodRepository->update([$paymentMethod], $context);
         }

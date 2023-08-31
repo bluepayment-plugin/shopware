@@ -32,6 +32,9 @@ services:
   BlueMedia\ShopwarePayment\Lifecycle\Rules\RulesManager:
     public: true
 
+  BlueMedia\ShopwarePayment\Lifecycle\Icons\ProxyMediaService:
+    public: true
+
   # API
   BlueMedia\ShopwarePayment\Api\Client:
     factory: [ '@BlueMedia\ShopwarePayment\Api\ClientFactory', 'createFromPluginConfig' ]
