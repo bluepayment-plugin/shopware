@@ -41,7 +41,7 @@ class GeneralPaymentHandler implements BlueMediaPaymentHandlerInterface, Asynchr
         SalesChannelContext $salesChannelContext
     ): RedirectResponse {
         try {
-            $response = $this->initTransactionProcessor->process($transaction, $salesChannelContext);
+            $response = $this->initTransactionProcessor->processContinue($transaction, $salesChannelContext);
         } catch (Throwable $e) {
             throw new AsyncPaymentProcessException(
                 $transaction->getOrderTransaction()->getId(),

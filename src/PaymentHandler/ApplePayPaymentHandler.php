@@ -25,7 +25,7 @@ class ApplePayPaymentHandler extends DetailedPaymentHandler
         SalesChannelContext $salesChannelContext
     ): RedirectResponse {
         try {
-            $response = $this->initTransactionProcessor->process(
+            $response = $this->initTransactionProcessor->processContinue(
                 $transaction,
                 $salesChannelContext,
                 [InitTransactionProcessor::PARAM_GATEWAY_ID => GatewayIds::APPLE_PAY]

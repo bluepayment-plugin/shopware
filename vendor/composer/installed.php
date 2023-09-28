@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
+        'pretty_version' => 'dev-1.4.0-conflicts',
+        'version' => 'dev-1.4.0-conflicts',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '34cdb209eafbe0d93d418f79cf1eb9c5d75f2085',
+        'reference' => '2de68c207e9290ae6c89f0f3203babacbc346f17',
         'name' => 'blue-media/shopware-payment-composer-dist',
         'dev' => true,
     ),
     'versions' => array(
         'blue-media/shopware-payment-composer-dist' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+            'pretty_version' => 'dev-1.4.0-conflicts',
+            'version' => 'dev-1.4.0-conflicts',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '34cdb209eafbe0d93d418f79cf1eb9c5d75f2085',
+            'reference' => '2de68c207e9290ae6c89f0f3203babacbc346f17',
             'dev_requirement' => false,
         ),
         'bluepayment-plugin/bm-sdk' => array(

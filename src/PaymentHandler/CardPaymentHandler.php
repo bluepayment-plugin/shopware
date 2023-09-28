@@ -28,7 +28,7 @@ class CardPaymentHandler implements BlueMediaPaymentHandlerInterface, Synchronou
 
     public const CARD_PAYMENT_CONTINUE_URL = 'blueMediaCardPaymentContinueUrl';
 
-    private InitTransactionProcessor $initTransactionProcessor;
+    protected InitTransactionProcessor $initTransactionProcessor;
 
     private Router $router;
 
@@ -50,7 +50,7 @@ class CardPaymentHandler implements BlueMediaPaymentHandlerInterface, Synchronou
         SalesChannelContext $salesChannelContext
     ): void {
         try {
-            $transactionContinue = $this->initTransactionProcessor->process(
+            $transactionContinue = $this->initTransactionProcessor->processContinue(
                 $transaction,
                 $salesChannelContext,
                 [

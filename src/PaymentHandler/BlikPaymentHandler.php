@@ -7,30 +7,33 @@ namespace BlueMedia\ShopwarePayment\PaymentHandler;
 use BlueMedia\ShopwarePayment\Entity\Gateway\GatewayEntity;
 use BlueMedia\ShopwarePayment\Processor\InitTransactionProcessor;
 use BlueMedia\ShopwarePayment\Util\GatewayIds;
-use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
+use Shopware\Core\Checkout\Payment\Cart\SyncPaymentTransactionStruct;
 use Shopware\Core\Checkout\Payment\Exception\AsyncPaymentProcessException;
 use Shopware\Core\Framework\Validation\DataBag\RequestDataBag;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Throwable;
 
-class BlikPaymentHandler extends DetailedPaymentHandler
+class BlikPaymentHandler extends CardPaymentHandler
 {
-    /**
-     * @throws AsyncPaymentProcessException
-     */
     public function pay(
-        AsyncPaymentTransactionStruct $transaction,
+        SyncPaymentTransactionStruct $transaction,
         RequestDataBag $dataBag,
         SalesChannelContext $salesChannelContext
-    ): RedirectResponse {
+    ): void {
         try {
-            $response = $this->initTransactionProcessor->process(
+            $transactionParams = [
+                InitTransactionProcessor::PARAM_GATEWAY_ID => GatewayIds::BLIK,
+            ];
+
+            if ($dataBag->has('blikCode')) {
+                $transactionParams[InitTransactionProcessor::PARAM_AUTHORIZATION_CODE]
+                    = $dataBag->getDigits('blikCode');
+            }
+
+            $this->initTransactionProcessor->processInit(
                 $transaction,
                 $salesChannelContext,
-                [
-                    InitTransactionProcessor::PARAM_GATEWAY_ID => GatewayIds::BLIK,
-                ]
+                $transactionParams
             );
         } catch (Throwable $e) {
             throw new AsyncPaymentProcessException(
@@ -38,8 +41,6 @@ class BlikPaymentHandler extends DetailedPaymentHandler
                 $e->getMessage()
             );
         }
-
-        return new RedirectResponse($response->getRedirectUrl());
     }
 
     public function isGatewaySupported(GatewayEntity $gatewayEntity): bool

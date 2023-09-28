@@ -44,6 +44,25 @@
             "transactionTitle": "Titel übertragen:",
             "amount": "Überweisungsbetrag:",
             "button": "Melden Sie sich bei Ihrer Bank an"
+        },
+        "blue-media-blik": {
+            "confirm": {
+                "submitButton": "Bezahlen mit ",
+                "label": "BLIK-Code"
+            },
+            "modal": {
+                "title": "Bestätigen Sie die Transaktion in der App Ihrer Bank",
+                "errorTitle": "Leider ist etwas schief gelaufen... Bitte versuchen Sie es erneut",
+                "helpInfo": "Möchten Sie herausfinden, wie Sie BLIK-Zahlungen verwenden können? <a href=\"https://blik.com/en/how-to-use-blik\" rel=\"noopener noreferrer\" target=\"_blank\">Hier finden Sie das Handbuch</a>.",
+                "submitButton": "Bezahlen",
+                "or": "oder",
+                "changePaymentMethodButton": "Wählen Sie eine andere Zahlungsmethode"
+            },
+            "error": {
+                "invalidBlikCode": "Falscher BLIK-Code. Geben Sie den richtigen BLIK-Code ein, den Sie in der App Ihrer Bank finden. <a href=\"https://blik.com/en/how-to-use-blik\" rel=\"noopener noreferrer\" target=\"_blank\">Hier finden Sie das Handbuch</a>.",
+                "blikCodeNotProvided": "Geben Sie den richtigen BLIK-Code ein, den Sie in der App Ihrer Bank finden. <a href=\"https://blik.com/en/how-to-use-blik\" rel=\"noopener noreferrer\" target=\"_blank\">Hier finden Sie das Handbuch</a>.",
+                "generalError": "Leider ist ein unerwarteter Zahlungsfehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den Shop-Support."
+            }
         }
     },
     "error": {

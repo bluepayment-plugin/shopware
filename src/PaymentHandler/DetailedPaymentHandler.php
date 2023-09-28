@@ -52,7 +52,7 @@ class DetailedPaymentHandler implements BlueMediaPaymentHandlerInterface, Asynch
                 $salesChannelContext,
                 $transaction->getOrderTransaction()->getAmount()->getTotalPrice()
             );
-            $response = $this->initTransactionProcessor->process(
+            $response = $this->initTransactionProcessor->processContinue(
                 $transaction,
                 $salesChannelContext,
                 [InitTransactionProcessor::PARAM_GATEWAY_ID => $gatewayEntity->getGatewayId()]

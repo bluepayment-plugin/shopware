@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.0]
+
+### Added
+
+- Implementacja płatności BLIK bezpośrednio na stronie potwierdzenia zamówienia
+
 ## [1.3.1]
 
 ### Naprawiono

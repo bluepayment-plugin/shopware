@@ -62,7 +62,11 @@
             {% endblock %}
 
             {% block page_checkout_confirm_form_submit %}
-                {{ parent() }}
+                {% if isBlueMediaBlikPaymentSelected(context) %}
+                    {% sw_include '@BlueMediaShopwarePayment/storefront/component/payment/blue-media/payments/blik.html.twig'%}
+                {% else %}
+                    {{ parent() }}
+                {% endif %}
             {% endblock %}
         </form>
     </div>
@@ -73,5 +77,12 @@
                value="1" {# valid by default #}
                data-autopay-apple-pay-validation-field="true"
         />
+    {% endif %}
+{% endblock %}
+
+{% block base_pseudo_modal %}
+    {{ parent() }}
+    {% if isBlueMediaBlikPaymentSelected(context) %}
+        {% sw_include "@BlueMediaShopwarePayment/storefront/component/payment/blue-media/blik-modal/blik-modal.html.twig" %}
     {% endif %}
 {% endblock %}

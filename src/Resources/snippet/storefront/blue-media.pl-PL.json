@@ -44,6 +44,25 @@
             "transactionTitle": "Tytuł przelewu:",
             "amount": "Kwota przelewu:",
             "button": "Zaloguj się do banku"
+        },
+        "blue-media-blik": {
+            "confirm": {
+                "submitButton": "Zapłać z ",
+                "label": "Podaj kod BLIK"
+            },
+            "modal": {
+                "title": "Potwierdź transakcję w aplikacji swojego banku",
+                "errorTitle": "Niestety coś poszło nie tak... Spróbuj ponownie",
+                "helpInfo": "Chcesz dowiedzieć się jak korzystać z płatności BLIK? <a href=\"https://blik.com/jak-korzystac-z-blika\" rel=\"noopener noreferrer\" target=\"_blank\">Sprawdź instrukcję tutaj</a>.",
+                "submitButton": "Zapłać",
+                "or": "lub",
+                "changePaymentMethodButton": "Wybierz inną metodę płatności"
+            },
+            "error": {
+                "invalidBlikCode": "Niepoprawny kod BLIK. Podaj prawidłowy kod BLIK, który znajdziesz w aplikacji swojego banku. <a href=\"https://blik.com/jak-korzystac-z-blika\" rel=\"noopener noreferrer\" target=\"_blank\">Sprawdź instrukcję tutaj</a>.",
+                "blikCodeNotProvided": "Podaj prawidłowy kod BLIK, który znajdziesz w aplikacji swojego banku. <a href=\"https://blik.com/jak-korzystac-z-blika\" rel=\"noopener noreferrer\" target=\"_blank\">Sprawdź instrukcję tutaj</a>.",
+                "generalError": "Niestety wystapił nieoczekiwany błąd płatności. Spróbuj ponownie lub skontaktuj sie z obsługą sklepu."
+            }
         }
     },
     "error": {

@@ -44,6 +44,25 @@
             "transactionTitle": "Transfer title:",
             "amount": "Transfer amount:",
             "button": "Log in to your bank"
+        },
+        "blue-media-blik": {
+            "confirm": {
+                "submitButton": "Pay with ",
+                "label": "Enter your BLIK code"
+            },
+            "modal": {
+                "title": "Confirm the transaction on your bank's app",
+                "errorTitle": "Unfortunately something went wrong... Please try again",
+                "helpInfo": "Want to find out how to use BLIK payments? <a href=\"https://blik.com/en/how-to-use-blik\" rel=\"noopener noreferrer\" target=\"_blank\">Check the manual here</a>.",
+                "submitButton": "Pay",
+                "or": "or",
+                "changePaymentMethodButton": "Change the payment method"
+            },
+            "error": {
+                "invalidBlikCode": "Incorrect BLIK code. Enter the correct BLIK code, which you will find in your bank's app. <a href=\"https://blik.com/en/how-to-use-blik\" rel=\"noopener noreferrer\" target=\"_blank\">Check the manual here</a>.",
+                "blikCodeNotProvided": "Enter the correct BLIK code, which you will find in your bank's app. <a href=\"https://blik.com/en/how-to-use-blik\" rel=\"noopener noreferrer\" target=\"_blank\">Check the manual here</a>.",
+                "generalError": "Unfortunately, an unexpected payment error occurred. Please try again or contact the shop support."
+            }
         }
     },
     "error": {

@@ -51,6 +51,14 @@ class TransactionDataProvider
         return $this->returnFirstByCriteria($criteria, $context);
     }
 
+    public function getTransactionByOrderId(string $orderId, Context $context): ?OrderTransactionEntity
+    {
+        $criteria = $this->getCriteria();
+        $criteria->addFilter(new EqualsFilter('orderId', $orderId));
+
+        return $this->returnFirstByCriteria($criteria, $context);
+    }
+
     public function getInitTransactionResponse(string $orderTransactionId, Context $context): ?TransactionContinue
     {
         $response = $this->getTransactionCustomField(

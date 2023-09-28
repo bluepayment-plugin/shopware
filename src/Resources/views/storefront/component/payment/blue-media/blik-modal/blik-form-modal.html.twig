@@ -1,0 +1,26 @@
+{% sw_extends '@BlueMediaShopwarePayment/storefront/component/payment/blue-media/payments/blik.html.twig' %}
+
+{% block blue_media_payment_blik_content %}
+    {% block blue_media_payment_blik_content_alert %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block blue_media_payment_blik_content_form %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
+
+{% block blue_media_payment_blik_content_form_submit %}{% endblock %}
+
+{% block blue_media_payment_blik_content_form_input %}
+    {{ parent() }}
+
+    <div class="form-group col-sm-4">
+        <button id="confirmBlikSubmit"
+                class="btn btn-primary btn-block btn-lg"
+                type="submit">
+            {{ "checkout.blue-media-blik.modal.submitButton"|trans|sw_sanitize }}
+        </button>
+    </div>
+
+{% endblock %}

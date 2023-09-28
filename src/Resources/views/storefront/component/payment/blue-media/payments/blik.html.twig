@@ -1,0 +1,75 @@
+{% block blue_media_payment_blik %}
+
+    {% set blueMediaBlikPluginOptions = {
+        'blikTransactionInitUrl': path('store-api.blue-payment.blik.init'),
+        'paymentMethodId': context.paymentMethod.id,
+        'isOrderEdit': orderId is defined,
+        'generalErrorMessage': 'checkout.blue-media-blik.error.generalError'|trans|sw_sanitize
+    } %}
+
+    {% block blue_media_payment_blik_content %}
+        <div class="blue-media-payment-blik"
+             data-blue-media-blik="true"
+             data-blue-media-blik-options="{{ blueMediaBlikPluginOptions|json_encode }}"
+        >
+            {% block blue_media_payment_blik_content_alert %}
+                <div class="form-row">
+                    <div class="blue-media-payment-blik--alert d-none">
+                        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                            type: "danger",
+                            content: ""
+                        } %}
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block blue_media_payment_blik_content_form %}
+                <div class="form-row">
+                    {% block blue_media_payment_blik_content_form_label %}
+                        <div class="form-group col-sm-4">
+                            <label class="blue-media-payment-blik--label" for="blikCodeInput">
+                                {{ "checkout.blue-media-blik.confirm.label"|trans|sw_sanitize }}
+                            </label>
+                        </div>
+                    {% endblock %}
+
+                    {% block blue_media_payment_blik_content_form_input %}
+                        <div class="form-group col-sm-4">
+                            <input id="blikCodeInput" name="blikCode"
+                                   type="text"
+                                   class="form-control h-auto blue-media-payment-blik--input"
+                                   data-blue-media-blik-mask="true"
+                                   maxlength="7"
+                                   autocomplete="off"
+                            />
+                        </div>
+                    {% endblock %}
+                </div>
+
+                {% block blue_media_payment_blik_content_form_submit %}
+                    <div class="form-row">
+
+                        {% if orderId is defined %}
+                            <input type="hidden" name="orderId" value="{{ orderId }}"/>
+                        {% endif %}
+
+                        <button id="confirmFormSubmit"
+                                class="btn btn-primary btn-block btn-lg"
+                                form="confirmOrderForm"
+                                {% if page.cart.errors.blockOrder %}
+                                    disabled
+                                {% endif %}
+                                type="submit">
+                            {{ "checkout.blue-media-blik.confirm.submitButton"|trans|sw_sanitize }}
+
+                            <img class="blue-media-payment-blik--submit-logo"
+                                 src="{{ asset('storefront/img/blik-logo.svg', '@BlueMediaShopwarePayment') }}"
+                                 alt="BLIK"
+                            />
+                        </button>
+                    </div>
+                {% endblock %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

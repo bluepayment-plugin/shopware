@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.0]
+
+### Added
+
+- Implementation of BLIK payment directly on checkout confirm page
+
 ## [1.3.1]
 
 ### Fixed

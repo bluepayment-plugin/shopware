@@ -124,3 +124,13 @@ services:
 
   BlueMedia\ShopwarePayment\Twig\GooglePayTwigExtension:
     tags: [ 'twig.extension' ]
+
+  BlueMedia\ShopwarePayment\Twig\BlikTwigExtension:
+    tags: [ 'twig.extension' ]
+
+  # CONTROLLERS
+  BlueMedia\ShopwarePayment\Controller\Storefront\CheckoutFinishBlikController:
+    arguments:
+      $handlePaymentMethodRoute: '@Shopware\Core\Checkout\Payment\SalesChannel\HandlePaymentMethodRoute'
+      $orderRoute: '@Shopware\Core\Checkout\Order\SalesChannel\OrderRoute'
+      $setPaymentOrderRoute: '@Shopware\Core\Checkout\Order\SalesChannel\SetPaymentOrderRoute'

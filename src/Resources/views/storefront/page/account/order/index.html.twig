@@ -1,0 +1,11 @@
+{% sw_extends '@Storefront/storefront/page/account/order/index.html.twig' %}
+
+{% block page_checkout_confirm_form_submit %}
+    {% if isBlueMediaBlikPaymentSelected(context) %}
+        {% sw_include '@BlueMediaShopwarePayment/storefront/component/payment/blue-media/payments/blik.html.twig' with {
+            orderId: page.order.id
+        } %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

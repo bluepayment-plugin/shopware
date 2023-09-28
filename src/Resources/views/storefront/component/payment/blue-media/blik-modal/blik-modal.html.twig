@@ -1,0 +1,40 @@
+{% block blue_media_payment_blik_modal %}
+    <div class="d-none">
+        <div class="blue-media-blik--modal-container" id="blueMediaBlikModalContent">
+            <div class="blue-media-blik--modal-waiting">
+                <h4 class ="blue-media-blik--modal-waiting-title">
+                    {{ "checkout.blue-media-blik.modal.title"|trans|sw_sanitize }}
+                </h4>
+
+                <div class="blue-media-blik--modal-loader">
+                    <div class="blue-media-blik--modal-loader-animation"></div>
+                    <img class="blue-media-blik--modal-loader-image"
+                         src="{{ asset('storefront/img/blik-logo.svg', '@BlueMediaShopwarePayment') }}"
+                         alt="BLIK"
+                    />
+                </div>
+            </div>
+
+            <div class="blue-media-blik--modal-error d-none">
+                <h4 class="blue-media-blik--modal-error-title">
+                    {{ "checkout.blue-media-blik.modal.errorTitle"|trans|sw_sanitize }}
+                </h4>
+                {% sw_icon 'x-wide' style { 'class': 'blue-media-blik--modal-error-icon', 'size': 'lg' } %}
+
+                {% sw_include '@BlueMediaShopwarePayment/storefront/component/payment/blue-media/blik-modal/blik-form-modal.html.twig' %}
+
+                <div class="blue-media-blik--modal-error-or">
+                    <span class="blue-media-blik--modal-error-or-text">{{ "checkout.blue-media-blik.modal.or"|trans|sw_sanitize }}</span>
+                </div>
+
+                <button id="changePaymentMethodButton"
+                        class="btn btn-outline-secondary btn-block btn-sm"
+                        type="submit">
+                    {{ "checkout.blue-media-blik.modal.changePaymentMethodButton"|trans|sw_sanitize }}
+                </button>
+            </div>
+
+            <p class="blue-media-blik--modal-help-text">{{ "checkout.blue-media-blik.modal.helpInfo"|trans|raw }}</p>
+        </div>
+    </div>
+{% endblock %}

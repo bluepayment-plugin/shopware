@@ -3,13 +3,19 @@
 {% block component_payment_method_label %}
     {{ parent() }}
 
-    {% sw_include '@Storefront/storefront/component/payment/blue-media/gateway-list.html.twig' %}
+    {% sw_include '@BlueMediaShopwarePayment/storefront/component/payment/blue-media/gateway-list.html.twig' %}
 {% endblock %}
 
 {% block component_payment_method_field %}
     {{ parent() }}
 
     {% if isBlueMediaApplePayPayment(payment) %}
-        {% sw_include '@Storefront/storefront/component/payment/blue-media/payments/apple-pay.html.twig' %}
+        {% sw_include '@BlueMediaShopwarePayment/storefront/component/payment/blue-media/payments/apple-pay.html.twig' %}
     {% endif %}
+{% endblock %}
+
+{% block component_payment_method_control %}
+    {{ parent() }}
+
+
 {% endblock %}

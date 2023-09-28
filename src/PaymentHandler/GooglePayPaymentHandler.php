@@ -35,7 +35,7 @@ class GooglePayPaymentHandler extends DetailedPaymentHandler
         SalesChannelContext $salesChannelContext
     ): RedirectResponse {
         try {
-            $response = $this->initTransactionProcessor->process(
+            $response = $this->initTransactionProcessor->processContinue(
                 $transaction,
                 $salesChannelContext,
                 [

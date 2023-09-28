@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.0]
+
+### Hinzugefügt
+
+- Implementierung der BLIK-Zahlung direkt auf der Checkout-Bestätigungsseite
+
 ## [1.3.1]
 
 ### Festgelegt
